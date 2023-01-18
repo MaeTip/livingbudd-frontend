@@ -1,4 +1,4 @@
-import livingBuddLogo from 'assets/livingbudd_logo.svg'
+import livingBuddLogo from 'assets/livingbudd_logo_black.png'
 
 const HomePage = () => {
   return (
