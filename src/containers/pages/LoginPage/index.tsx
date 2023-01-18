@@ -2,15 +2,14 @@ import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useForm, Controller } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
-
-import { Form, Input, Button, Row, Col } from 'antd';
-import { useLoginUserMutation } from "../../../shared/service/auth.api";
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Wrapper } from "./index.styles";
-import logo from "../../../assets/livingbudd_logo.svg"
-import { useAppDispatch } from '../../../shared/store'
-import { setToken } from "../../../shared/slice/auth.slice";
+import { Form, Input, Button, Row, Col } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from 'shared/store'
+import { setToken } from "shared/slice/auth.slice";
+import { useLoginUserMutation } from "shared/service/auth.api";
+import { Wrapper } from "./index.styles";
+import logo from "assets/livingbudd_logo.svg"
 
 const loginSchema = object({
   email: string()
