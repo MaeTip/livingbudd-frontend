@@ -4,10 +4,13 @@ import { useForm, Controller } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
 
 import { Form, Input, Button, Row, Col } from 'antd';
-import { useLoginUserMutation } from "../../../redux/api/auth.api";
+import { useLoginUserMutation } from "../../../shared/service/auth.api";
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Wrapper } from "./index.styles";
 import logo from "../../../assets/livingbudd_logo.svg"
+import { useAppDispatch } from '../../../shared/store'
+import { setToken } from "../../../shared/slice/auth.slice";
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const loginSchema = object({
   email: string()
@@ -22,18 +25,22 @@ const loginSchema = object({
 export type LoginInput = TypeOf<typeof loginSchema>;
 
 const LoginPage = () => {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = ((location.state as any)?.from.pathname as string) || '/dashboard';
+  const [loginUser, { data: loginData, isLoading, isError, error, isSuccess }] = useLoginUserMutation();
   const {
     control,
     handleSubmit,
     formState: { errors }
   } = useForm()
 
-  const [loginUser, { isLoading, isError, error, isSuccess }] = useLoginUserMutation();
-
   useEffect(() => {
     if (isSuccess) {
       toast.success('You successfully logged in');
-      // navigate(from);
+      dispatch(setToken({token: loginData?.access_token }))
+      navigate(from);
     }
     if (isError) {
       if (Array.isArray((error as any).data.error)) {

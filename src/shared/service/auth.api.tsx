@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { LoginInput } from '../../containers/pages/LoginPage';
-// import { userApi } from './user.api';
+import { userApi } from './user.api';
 
 const API_BASE_URL = process.env.REACT_APP_SERVER_ENDPOINT as string;
 
@@ -25,7 +25,7 @@ export const authApi = createApi({
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           await queryFulfilled;
-          // await dispatch(userApi.endpoints.getMe.initiate(null));
+          await dispatch(userApi.endpoints.getMe.initiate());
         } catch (error) {}
       },
     })

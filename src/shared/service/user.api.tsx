@@ -1,26 +1,31 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { setUser } from '../features/user/user.slice';
+import { setUser } from '../slice/user.slice';
 import { IUser } from '../dto';
-
+import type { RootState } from '../store'
 
 const API_BASE_URL = process.env.REACT_APP_SERVER_ENDPOINT as string;
 
 export const userApi = createApi({
   reducerPath: 'userApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${API_BASE_URL}/users/`
+    baseUrl: `${API_BASE_URL}/users/`,
+    prepareHeaders: (headers, { getState }) => {
+      const token = (getState() as RootState).auth.token
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`)
+        return headers
+      }
+    },
   }),
   tagTypes: ['User'],
   endpoints: (builder) => ({
-    getMe: builder.query<IUser, null>({
+    getMe: builder.query<IUser, void>({
       query() {
         return {
-          url: 'me',
-          headers: { foo: "bar" }
+          url: 'me'
         };
       },
-      transformResponse: (result: { data: { user: IUser } }) =>
-        result.data.user,
+      transformResponse: (result: IUser) => result,
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
@@ -31,3 +36,6 @@ export const userApi = createApi({
   }),
 });
 
+export const {
+  useGetMeQuery
+} = userApi;
