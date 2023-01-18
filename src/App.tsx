@@ -1,14 +1,23 @@
 import React from 'react';
-import livingBuddLogo from './living_budd_logo.png'
+import { Route, Routes } from 'react-router-dom';
+
+import DefaultLayout from './containers/layouts/DefaultLayout';
+import HomePage from './containers/pages/HomePage';
+import LoginPage from './containers/pages/LoginPage';
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={livingBuddLogo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <Routes>
+      <Route path='/'>
+        <Route element={<DefaultLayout />}>
+
+        </Route>
+        <Route index element={<HomePage />} />
+        <Route path='login' element={<LoginPage />} />
+      </Route>
+    </Routes>
   );
 }
 
