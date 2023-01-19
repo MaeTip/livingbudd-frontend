@@ -1,19 +1,14 @@
 import livingBuddLogo from 'assets/livingbudd_logo_black.png'
-import { useAppSelector } from 'shared/store';
 
-const DashboardPage = () => {
-  let user = useAppSelector((state) => state.user.user);
-
+const UnauthorizePage = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <div>
-          Hello, {user?.email}
-        </div>
         <img src={livingBuddLogo} className="App-logo" alt="logo" />
+        Unauthorized Page
       </header>
     </div>
   )
 }
 
-export default DashboardPage
+export default UnauthorizePage

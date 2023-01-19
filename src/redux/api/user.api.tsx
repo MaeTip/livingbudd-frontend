@@ -19,7 +19,7 @@ export const userApi = createApi({
   }),
   tagTypes: ['User'],
   endpoints: (builder) => ({
-    getMe: builder.query<IUser, void>({
+    getMe: builder.query<IUser, void | null>({
       query() {
         return {
           url: 'me'

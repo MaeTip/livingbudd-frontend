@@ -5,9 +5,9 @@ import { object, string, TypeOf } from 'zod';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Form, Input, Button, Row, Col } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useAppDispatch } from 'shared/store'
-import { setToken } from "shared/slice/auth.slice";
-import { useLoginUserMutation } from "shared/service/auth.api";
+import { useAppDispatch } from 'redux/store'
+import { setToken } from "redux/slice/auth.slice";
+import { useLoginUserMutation } from "redux/api/auth.api";
 import { Wrapper } from "./index.styles";
 import logo from "assets/livingbudd_logo.svg"
 
@@ -27,7 +27,7 @@ const LoginPage = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate();
   const location = useLocation();
-  const from = ((location.state as any)?.from.pathname as string) || '/dashboard';
+  const from = ((location.state as any)?.from.pathname as string) || '/admin/dashboard';
   const [loginUser, { data: loginData, isLoading, isError, error, isSuccess }] = useLoginUserMutation();
   const {
     control,

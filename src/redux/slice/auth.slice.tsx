@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from "../store";
 import { IAuth } from "../dto";
+import {getAuthToken } from "utils/localstorage";
 
 // initialize userToken from local storage
-const token = localStorage.getItem('token') ? localStorage.getItem('token') : null
+const token = getAuthToken()
 const initialState: IAuth = {
   token,
 };
