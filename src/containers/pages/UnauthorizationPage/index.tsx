@@ -1,12 +1,14 @@
-import livingBuddLogo from 'assets/livingbudd_logo_black.png'
+import livingBuddLogo from 'assets/livingbudd_logo.svg'
+import { Typography } from 'antd';
+const { Title } = Typography;
 
 const UnauthorizePage = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={livingBuddLogo} className="App-logo" alt="logo" />
-        Unauthorized Page
-      </header>
+      <Title>
+        No Authorized
+      </Title>
+      <img src={livingBuddLogo} className="App-logo" alt="logo" />
     </div>
   )
 }

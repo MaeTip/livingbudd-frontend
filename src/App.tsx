@@ -4,7 +4,7 @@ import DefaultLayout from './containers/layouts/DefaultLayout';
 import HomePage from './containers/pages/HomePage';
 import LoginPage from './containers/pages/admin/LoginPage';
 import DashboardPage from './containers/pages/admin/DashboardPage';
-import PrivateRoute from "./components/privateRoute";
+import PrivateRoute from "./components/PrivateRoute";
 import UnauthorizePage from "./containers/pages/UnauthorizationPage";
 
 import { ToastContainer } from 'react-toastify';

@@ -3,9 +3,9 @@ import livingBuddLogo from 'assets/livingbudd_logo_black.png'
 const HomePage = () => {
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-content">
         <img src={livingBuddLogo} className="App-logo" alt="logo" />
-      </header>
+      </div>
     </div>
   )
 }

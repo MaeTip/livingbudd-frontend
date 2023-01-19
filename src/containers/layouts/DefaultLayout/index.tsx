@@ -1,16 +1,19 @@
 import { Outlet } from 'react-router-dom';
 import { Layout } from 'antd';
+import {Wrapper} from "./index.styles";
+import AppHeader from "components/AppHeader";
 
-const { Header, Footer, Content } = Layout;
+const { Content } = Layout;
 
 const DefaultLayout = () => {
   return (
     <Layout>
-      <Header>Header</Header>
+      <AppHeader />
       <Content>
-        <Outlet />
+        <Wrapper>
+          <Outlet />
+        </Wrapper>
       </Content>
-      <Footer>Footer</Footer>
     </Layout>
   );
 };
