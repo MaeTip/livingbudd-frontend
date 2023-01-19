@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { useForm, Controller } from 'react-hook-form';
 import { object, string, TypeOf } from 'zod';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Form, Input, Button, Row, Col } from 'antd';
+import { Form, Input, Button, Row, Col, message } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from 'redux/store'
 import { setToken } from "redux/slice/auth.slice";
@@ -37,7 +37,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success('You successfully logged in');
+      message.info(`You successfully logged in `);
       dispatch(setToken({token: loginData?.access_token }))
       navigate(from);
     }
@@ -120,7 +120,7 @@ const LoginPage = () => {
                 )}
               />
               <Form.Item>
-                <Button type="primary" block htmlType="submit">
+                <Button type="primary" block htmlType="submit" loading={isLoading}>
                   Login
                 </Button>
               </Form.Item>

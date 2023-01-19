@@ -21,7 +21,7 @@ export interface ProfileMenuProps {
 
 const ProfileMenu: FC<ProfileMenuProps> = (user) => {
   const navigate = useNavigate();
-  let users = useAppSelector((state) => state.user.user);
+
   const handleLogOut = () => {
     removeAuthToken()
     navigate('/admin/login')
