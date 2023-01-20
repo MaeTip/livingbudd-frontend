@@ -9,7 +9,7 @@ import UnauthorizePage from "./containers/pages/UnauthorizationPage";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import './i18n'
 import './App.css';
 
 function App() {

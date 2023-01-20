@@ -3,11 +3,13 @@ import livingBuddLogo from "assets/livingbudd_logo_header.png";
 import ProfileMenu from "components/ProfileMenu";
 import { useAppSelector } from "../../redux/store";
 import { HomeOutlined, AuditOutlined } from "@ant-design/icons";
+import { useTranslation } from 'react-i18next'
 
 const { Header } = Layout;
 
 const AppHeader = () => {
   const user = useAppSelector((state) => state.user.user);
+  const { t } = useTranslation()
 
   const enum MENU_KEY {
     HOME = "HOME",
@@ -20,12 +22,12 @@ const AppHeader = () => {
 
   const items: MenuProps["items"] = [
     {
-      label: "Home",
+      label: t('menu.home'),
       key: MENU_KEY.HOME,
       icon: <HomeOutlined />,
     },
     {
-      label: "RESERVATION",
+      label: t('menu.reservation'),
       key: MENU_KEY.RESERVATION,
       icon: <AuditOutlined />,
     },
