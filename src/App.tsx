@@ -1,11 +1,12 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import DefaultLayout from './containers/layouts/DefaultLayout';
+import PrivateRoute from "./components/PrivateRoute";
 import HomePage from './containers/pages/HomePage';
 import LoginPage from './containers/pages/admin/LoginPage';
 import DashboardPage from './containers/pages/admin/DashboardPage';
-import PrivateRoute from "./components/PrivateRoute";
 import UnauthorizePage from "./containers/pages/UnauthorizationPage";
+import CreateReservationPage from "./containers/pages/CreateReservationPage";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -30,6 +31,7 @@ function App() {
             <Route path='unauthorized' element={<UnauthorizePage />} />
           </Route>
           <Route index element={<HomePage />} />
+          <Route path='reservation' element={<CreateReservationPage />} />
         </Route>
       </Routes>
     </>
