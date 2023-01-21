@@ -8,7 +8,7 @@ const API_BASE_URL = process.env.REACT_APP_SERVER_ENDPOINT as string;
 export const userApi = createApi({
   reducerPath: 'userApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${API_BASE_URL}/users/`,
+    baseUrl: `${API_BASE_URL}/api/users/`,
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).auth.token
       if (token) {

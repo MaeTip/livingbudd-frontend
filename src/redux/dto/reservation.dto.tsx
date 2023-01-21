@@ -13,13 +13,13 @@ export interface IReservation {
 }
 
 export enum Gender {
-  MALE,
-  FEMALE,
+  MALE = "MALE",
+  FEMALE = "FEMALE",
 }
 
 export enum Vehicle {
-  MOTORCYCLE,
-  CAR,
-  MOTORCYCLE_AND_CAR,
-  NO,
+  MOTORCYCLE = "MOTORCYCLE",
+  CAR = "CAR",
+  MOTORCYCLE_AND_CAR = "MOTORCYCLE_AND_CAR",
+  NO = "NO",
 }

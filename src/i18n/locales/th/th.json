@@ -8,6 +8,40 @@
     "reservation": "Reservation"
   },
   "common": {
-    "welcome": "ยินดีต้อนรับ"
+    "welcome": "ยินดีต้อนรับ",
+    "errors": {
+      "required": "กรุณากรอกข้อมูล{{name}}",
+      "email_pattern": "กรุณากรอกข้อมูลให้ถูกต้องตามรูปแบบอีเมล์"
+    }
+  },
+  "reservation": {
+    "form": {
+      "email": "อีเมล์",
+      "fullname": "ชื่อ-นามสกุล",
+      "age": "อายุ",
+      "gender": "เพศ",
+      "phone": "เบอร์ติดต่อ",
+      "contact": "ช่องทางติดต่ออื่นๆ (Facebook, Line)",
+      "number_of_tenant": "จำนวนคนพัก",
+      "pet_required": "มีเลี้ยงสัตว์หรือไม่",
+      "vehicle": "ประเภทยานพาหนะ",
+      "working_address": "สถานที่ทำงาน / พื้นที่ทำงาน",
+      "additional_request": "ความต้องการอื่นๆ",
+      "submit": "จอง",
+      "vehicle_option": {
+        "motorcycle":  "รถจักรยานยนต์",
+        "car": "รถยนต์",
+        "motorcycle_and_car": "ทั้งรถยนต์และรถจักรยานยนต์",
+        "no": "ไม่มี"
+      },
+      "pet_required_option": {
+        "yes":  "มี",
+        "no": "ไม่มี"
+      },
+      "gender_option": {
+        "male":  "ชาย",
+        "female": "หญิง"
+      }
+    }
   }
 }

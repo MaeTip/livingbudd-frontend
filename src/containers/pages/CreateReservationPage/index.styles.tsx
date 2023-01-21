@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  height: 100vh;
-  position: relative;
-  
   .logo {
     display: block;
     margin-left: auto;
@@ -12,19 +9,16 @@ export const Wrapper = styled.div`
   }
   
   .form-wrapper {
-    max-width: 400px;
-    position: relative;
-    top: 50%;
+    max-width: 600px;
     left: 50%;
-    transform: translate(-50%,-50%);
-    margin-top: -50px;
+    margin: 50px auto 0;
   }
   
   .form-error {
     color: #ff4d4f;
   }
-  
-  .signin-form {
-    padding: 0 40px;
+
+  .ant-form-item {
+    margin-bottom: 20px;
   }
 `
