@@ -45,19 +45,11 @@ export const Wrapper = styled.div`
     
     @media only screen and (min-width: 768px) {
       position: relative;
+      margin-left: auto;
+      margin-right: auto;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
+      transform: translateY(-50%);
       background: url(${backgroundImage}) #FFF no-repeat top center;
     }
-    
-  }
-  
-  .form-error {
-    color: #ff4d4f;
-  }
-
-  .ant-form-item {
-    margin-bottom: 10px;
   }
 `
