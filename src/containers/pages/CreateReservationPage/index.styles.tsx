@@ -1,32 +1,55 @@
 import styled from 'styled-components'
-import backgroundImage2 from 'assets/reservation_bg.png'
+import backgroundImage from 'assets/reservation_bg.png'
+import logoText from 'assets/livingbudd_logo_text.png'
 
 export const Wrapper = styled.div`
   height: 100vh;
   position: relative;
   background: #eee;
   
+  .logo-text {
+    background: url(${logoText}) transparent no-repeat top center;
+    display: block;
+    width: 240px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+  
   .logo {
-    //display: block;
-    //margin-left: auto;
-    //margin-right: auto;
-    //margin-bottom: 15px;
-    position: absolute;
-    right: 140px;
-    top: 60px;
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media only screen and (min-width: 768px) {
+      display: block;
+      position: absolute;
+      top: 60px;
+      right: 125px;
+    }
+    @media only screen and (min-width: 992px) {
+      right: 140px;
+    }
   }
   
   .form-wrapper {
     max-width: 800px;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    //margin-top: -50px;
     padding: 15px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
     border-radius: 10px;
-    background: url(${backgroundImage2}) #FFF no-repeat top center;
+    background-color: #fff;
+    
+    @media only screen and (min-width: 768px) {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background: url(${backgroundImage}) #FFF no-repeat top center;
+    }
     
   }
   

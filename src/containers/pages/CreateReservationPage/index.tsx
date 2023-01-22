@@ -55,13 +55,13 @@ const CreateReservationPage = () => {
   return (
     <Wrapper>
       <div className="form-wrapper">
+        <div className={'logo-text'}></div>
         <img src={logo} className="logo" alt="logo" width={"200px"} />
         <Row>
-          <Col span={14}>
+          <Col md={{span:14}} sm={{ span: 24 }}>
             <Row>
-              <Col offset={4}>
+              <Col md={{offset:4}} sm={{ offset: 0 }}>
                 <Title>ลงทะเบียนจองห้องพัก</Title>
-
               </Col>
             </Row>
             <Form
@@ -71,7 +71,7 @@ const CreateReservationPage = () => {
               colon={false}
               labelWrap
               labelCol={{ span: 8 }}
-              wrapperCol={{ span: 14 }}
+              wrapperCol={{ span: 14,  sm: { span : 24 },  md: { span : 14 }  }}
             >
               <Controller
                 name="fullname"
@@ -280,7 +280,7 @@ const CreateReservationPage = () => {
                   </Form.Item>
                 )}
               />
-              <Form.Item wrapperCol={{ offset: 8, span: 6 }}>
+              <Form.Item wrapperCol={ { sm: { offset: 8, span: 8 }, md: { offset: 8, span: 6 } }}>
                 <Button
                   type="primary"
                   block
