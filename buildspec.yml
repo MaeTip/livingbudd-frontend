@@ -21,7 +21,7 @@ phases:
       - yarn run build
   post_build:
     commands:
-      - aws s3 sync ./build 's3://${BUCKET_NAME}/'
+      - aws s3 cp ./build s3://${BUCKET_NAME}
       - aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --path '/*'
 artifacts:
   files:
