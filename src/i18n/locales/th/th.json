@@ -1,7 +1,7 @@
 {
   "app": {
-    "name": "Living Bud",
-    "name_emphasized": "d",
+    "name": "Living Budd",
+    "name_emphasized": "Living Bud<em>d</em>",
     "moto": "Best buddy for living rental"
   },
   "seo": {
@@ -20,6 +20,11 @@
     }
   },
   "reservation": {
+    "successful": {
+      "title": "ขอบคุณที่ลงทะเบียนจองห้องพัก",
+      "description": "กรณีห้องว่างแอดมินจะตอบกลับตามที่อยู่ ที่ติดต่อ ที่ท่านได้แจ้งไว้ ตามลำดับการจอง ติดต่อข้อมูลเพิ่มเติม 084-488-6178",
+      "button": "ลงทะเบียนอีกครั้ง"
+    },
     "form": {
       "email": "อีเมล์",
       "fullname": "ชื่อ-นามสกุล",

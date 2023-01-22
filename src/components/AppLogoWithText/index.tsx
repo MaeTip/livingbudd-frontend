@@ -11,8 +11,7 @@ const AppLogoWithText: FC<AppLogoWithTextProps> = ({ className }) => {
   return (
     <Wrapper className={`${className}`}>
       <div className="app-name">
-        <span>{t("app.name")}</span>
-        <span className="emphasized">{t("app.name_emphasized")}</span>
+        <div dangerouslySetInnerHTML={{__html: t('app.name_emphasized')}} />
       </div>
       <div>{t("app.moto")}</div>
     </Wrapper>

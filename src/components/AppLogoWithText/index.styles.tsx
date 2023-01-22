@@ -16,7 +16,8 @@ export const Wrapper = styled.div`
     font-weight: bold;
     width: 100%;
 
-    .emphasized {
+    em {
+      font-style: normal;
       color: #ff914d
     }
   }

@@ -246,8 +246,8 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
         </Form.Item>
         {isError && (
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            {(error as any)?.data?.message.map((message: any) => (
-              <ErrorText text={message} />
+            {(error as any)?.data?.message.map((message: any, key: any) => (
+              <ErrorText text={message} key={`error-${key}`} />
             ))}
           </Form.Item>
         )}

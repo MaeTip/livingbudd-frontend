@@ -4,44 +4,61 @@ import backgroundImage from 'assets/reservation_bg.png'
 export const Wrapper = styled.div`
   height: 100vh;
   position: relative;
-  background: #eee;
-  
-  .logo-text {
-    @media only screen and (min-width: 768px) {
-      display: none;
-    }
+
+  .form-wrapper {
+    max-width: 800px;
+    padding: 15px;
+    background-color: #fff;
   }
   
   .logo {
     display: none;
     margin-left: auto;
     margin-right: auto;
+  }
 
-    @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 768px) {
+    background: #eee;
+    
+    .logo {
       display: block;
       position: absolute;
       top: 60px;
       right: 125px;
     }
-    @media only screen and (min-width: 992px) {
-      right: 140px;
+
+    .logo-text {
+      display: none;
     }
-  }
-  
-  .form-wrapper {
-    max-width: 800px;
-    padding: 15px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-    border-radius: 10px;
-    background-color: #fff;
-    
-    @media only screen and (min-width: 768px) {
+
+    .form-wrapper {
       position: relative;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+      border-radius: 10px;
       margin-left: auto;
       margin-right: auto;
       top: 50%;
       transform: translateY(-50%);
       background: url(${backgroundImage}) #FFF no-repeat top center;
     }
+    
+    .reservation-successful {
+      position: relative;
+      min-height: 750px;
+
+      .reservation-successful-inner {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+      }
+    }
   }
+
+  @media only screen and (min-width: 992px) {
+    .logo {
+      right: 140px;
+    }
+  }
+  
 `
