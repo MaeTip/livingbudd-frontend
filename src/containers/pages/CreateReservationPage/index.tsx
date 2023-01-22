@@ -1,25 +1,25 @@
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useForm, Controller } from "react-hook-form";
-import { ExclamationCircleOutlined, UserOutlined } from "@ant-design/icons";
 import {
   Form,
   Input,
   Button,
   Row,
   Col,
-  message,
   InputNumber,
   Radio,
 } from "antd";
 import { useCreateReservationMutation } from "redux/api/reservation.api";
+import { Gender, Vehicle } from "redux/dto/reservation.dto";
 import { Wrapper } from "./index.styles";
 import logo from "assets/livingbudd_logo.svg";
 import { useTranslation } from "react-i18next";
-import ErrorText from "../../../components/ErrorText";
-import { Gender, Vehicle } from "../../../redux/dto/reservation.dto";
+import ErrorText from "components/ErrorText";
+import { Typography } from "antd";
 
 const CreateReservationPage = () => {
+  const { Title } = Typography;
   const { t } = useTranslation();
   const [createReservation, { isLoading, isError, error, isSuccess }] =
     useCreateReservationMutation();
@@ -55,13 +55,15 @@ const CreateReservationPage = () => {
   return (
     <Wrapper>
       <div className="form-wrapper">
-        <Row align="middle">
-          <Col span={24}>
-            <img src={logo} className="logo" alt="logo" width={"200px"} />
-          </Col>
-        </Row>
+        <img src={logo} className="logo" alt="logo" width={"200px"} />
         <Row>
-          <Col span={24}>
+          <Col span={14}>
+            <Row>
+              <Col offset={4}>
+                <Title>ลงทะเบียนจองห้องพัก</Title>
+
+              </Col>
+            </Row>
             <Form
               className="reservation-form"
               onFinish={handleSubmit(onFinish)}
@@ -185,7 +187,7 @@ const CreateReservationPage = () => {
                 name="contact"
                 control={control}
                 render={({ field }) => (
-                  <Form.Item required label={t("reservation.form.contact")}>
+                  <Form.Item label={t("reservation.form.contact")}>
                     <Input {...field} />
                   </Form.Item>
                 )}
@@ -242,7 +244,8 @@ const CreateReservationPage = () => {
                   <Form.Item label={t("reservation.form.vehicle")}>
                     <Radio.Group {...field}>
                       {Object.keys(Vehicle).map((name: string) => (
-                        <Radio value={name} style={{ width: "100%" }}>
+                        // <Radio value={name} style={{ width: "100%" }}>
+                        <Radio value={name}>
                           {t(
                             `reservation.form.vehicle_option.${name.toLowerCase()}`
                           )}
@@ -288,11 +291,13 @@ const CreateReservationPage = () => {
                   {t("reservation.form.submit")}
                 </Button>
               </Form.Item>
-              <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                {(error as any)?.data?.message.map((message: any) => (
-                  <ErrorText text={message} />
-                ))}
-              </Form.Item>
+              {isError && (
+                <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                  {(error as any)?.data?.message.map((message: any) => (
+                    <ErrorText text={message} />
+                  ))}
+                </Form.Item>
+              )}
             </Form>
           </Col>
         </Row>

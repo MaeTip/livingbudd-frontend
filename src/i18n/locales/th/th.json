@@ -25,13 +25,13 @@
       "number_of_tenant": "จำนวนคนพัก",
       "pet_required": "มีเลี้ยงสัตว์หรือไม่",
       "vehicle": "ประเภทยานพาหนะ",
-      "working_address": "สถานที่ทำงาน / พื้นที่ทำงาน",
+      "working_address": "สถานที่ทำงาน",
       "additional_request": "ความต้องการอื่นๆ",
       "submit": "จอง",
       "vehicle_option": {
         "motorcycle":  "รถจักรยานยนต์",
         "car": "รถยนต์",
-        "motorcycle_and_car": "ทั้งรถยนต์และรถจักรยานยนต์",
+        "motorcycle_and_car": "รถยนต์และรถจักรยานยนต์",
         "no": "ไม่มี"
       },
       "pet_required_option": {
