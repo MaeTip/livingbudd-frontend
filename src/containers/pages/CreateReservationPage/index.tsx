@@ -6,6 +6,7 @@ import { Wrapper } from "./index.styles";
 import logo from "assets/livingbudd_logo.svg";
 import { Typography } from "antd";
 import ReservationForm from "components/ReservationForm";
+import AppLogoWithText from "components/AppLogoWithText";
 
 const CreateReservationPage = () => {
   const { Title } = Typography;
@@ -39,7 +40,7 @@ const CreateReservationPage = () => {
   return (
     <Wrapper>
       <div className="form-wrapper">
-        <div className={"logo-text"}></div>
+        <AppLogoWithText className={"logo-text"} />
         <img src={logo} className="logo" alt="logo" width={"200px"} />
         <Row>
           <Col md={{ span: 14 }} sm={{ span: 24 }}>

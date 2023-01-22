@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import backgroundImage from 'assets/reservation_bg.png'
-import logoText from 'assets/livingbudd_logo_text.png'
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -8,13 +7,6 @@ export const Wrapper = styled.div`
   background: #eee;
   
   .logo-text {
-    background: url(${logoText}) transparent no-repeat top center;
-    display: block;
-    width: 240px;
-    height: 60px;
-    margin-left: auto;
-    margin-right: auto;
-    
     @media only screen and (min-width: 768px) {
       display: none;
     }
