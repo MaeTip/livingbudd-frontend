@@ -1,11 +1,10 @@
-import livingBuddLogo from "assets/livingbudd_logo.svg";
 import { useTranslation } from "react-i18next";
 import { PageWrapper } from "./index.styles";
 import { useGetAllReservationsQuery } from "redux/api/reservation.api";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
-import {Table} from "antd";
-import {data} from "browserslist";
+import React, { useEffect } from "react";
+import { Table } from "antd";
+import Title from "antd/es/typography/Title";
 
 const ReservationListPage = () => {
   const {
@@ -16,7 +15,6 @@ const ReservationListPage = () => {
   } = useGetAllReservationsQuery();
   const { t } = useTranslation();
 
-  console.log(reservations)
   useEffect(() => {
     if (isError) {
       if (Array.isArray((error as any).data.error)) {
@@ -35,33 +33,64 @@ const ReservationListPage = () => {
 
   const columns = [
     {
-      title: 'Fullname',
-      dataIndex: 'fullname',
-      key: 'fullname',
+      title: t("reservation.data.fullname"),
+      dataIndex: "fullname",
+      key: "fullname",
     },
     {
-      title: 'Phone',
-      dataIndex: 'phone',
-      key: 'phone',
+      title: t("reservation.data.phone"),
+      dataIndex: "phone",
+      key: "phone",
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
+      title: t("reservation.data.email"),
+      dataIndex: "email",
+      key: "email",
     },
     {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email',
+      title: t("reservation.data.number_of_tenant"),
+      dataIndex: "number_of_tenant",
+      key: "number_of_tenant",
+    },
+    {
+      title: t("reservation.data.age"),
+      dataIndex: "age",
+      key: "age",
+    },
+    {
+      title: t("reservation.data.gender"),
+      dataIndex: "gender",
+      key: "gender",
+    },
+    {
+      title: t("reservation.data.pet_required"),
+      dataIndex: "pet_required",
+      key: "pet_required",
+    },
+    {
+      title: t("reservation.data.vehicle"),
+      dataIndex: "vehicle",
+      key: "vehicle",
+    },
+    {
+      title: t("reservation.data.additional_request"),
+      dataIndex: "additional_request",
+      key: "additional_request",
+    },
+    {
+      title: t("reservation.data.contact"),
+      dataIndex: "contact",
+      key: "contact",
     },
   ];
 
   return (
-    <PageWrapper className="center-page">
+    <PageWrapper>
       {reservations?.length === 0 ? (
         <div>No</div>
       ) : (
         <div>
+          <Title>ลงทะเบียนจองห้องพัก</Title>
           <Table columns={columns} dataSource={reservations} />
         </div>
       )}

@@ -39,12 +39,12 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
             required: true,
           }}
           render={({ field }) => (
-            <Form.Item required label={t("reservation.form.fullname")}>
+            <Form.Item required label={t("reservation.data.fullname")}>
               <Input {...field} autoFocus />
               {errors.fullname?.type === "required" && (
                 <ErrorText
                   text={t("common.errors.required", {
-                    name: t("reservation.form.fullname"),
+                    name: t("reservation.data.fullname"),
                   })}
                 />
               )}
@@ -58,12 +58,12 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
             required: true,
           }}
           render={({ field }) => (
-            <Form.Item required label={t("reservation.form.phone")}>
+            <Form.Item required label={t("reservation.data.phone")}>
               <Input {...field} />
               {errors.phone?.type === "required" && (
                 <ErrorText
                   text={t("common.errors.required", {
-                    name: t("reservation.form.phone"),
+                    name: t("reservation.data.phone"),
                   })}
                 />
               )}
@@ -80,12 +80,12 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
             },
           }}
           render={({ field }) => (
-            <Form.Item label={t("reservation.form.email")}>
+            <Form.Item label={t("reservation.data.email")}>
               <Input {...field} />
               {errors.email?.type === "required" && (
                 <ErrorText
                   text={t("common.errors.required", {
-                    name: t("reservation.form.email"),
+                    name: t("reservation.data.email"),
                   })}
                 />
               )}
@@ -99,12 +99,12 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           name="age"
           control={control}
           render={({ field }) => (
-            <Form.Item label={t("reservation.form.age")}>
+            <Form.Item label={t("reservation.data.age")}>
               <InputNumber {...field} min={10} max={90} />
               {errors.age?.type === "required" && (
                 <ErrorText
                   text={t("common.errors.required", {
-                    name: t("reservation.form.age"),
+                    name: t("reservation.data.age"),
                   })}
                 />
               )}
@@ -115,18 +115,18 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           name="gender"
           control={control}
           render={({ field }) => (
-            <Form.Item label={t("reservation.form.gender")}>
+            <Form.Item label={t("reservation.data.gender")}>
               <Radio.Group {...field}>
                 {Object.keys(Gender).map((option: string) => (
                   <Radio value={option} key={`gender-${option}`}>
-                    {t(`reservation.form.gender_option.${option.toLowerCase()}`)}
+                    {t(`reservation.data.gender_option.${option.toLowerCase()}`)}
                   </Radio>
                 ))}
               </Radio.Group>
               {errors.age?.type === "required" && (
                 <ErrorText
                   text={t("common.errors.required", {
-                    name: t("reservation.form.gender"),
+                    name: t("reservation.data.gender"),
                   })}
                 />
               )}
@@ -137,7 +137,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           name="contact"
           control={control}
           render={({ field }) => (
-            <Form.Item label={t("reservation.form.contact")}>
+            <Form.Item label={t("reservation.data.contact")}>
               <Input {...field} />
             </Form.Item>
           )}
@@ -146,12 +146,12 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           name="number_of_tenant"
           control={control}
           render={({ field }) => (
-            <Form.Item label={t("reservation.form.number_of_tenant")}>
+            <Form.Item label={t("reservation.data.number_of_tenant")}>
               <InputNumber {...field} min={1} max={10} />
               {errors.age?.type === "required" && (
                 <ErrorText
                   text={t("common.errors.required", {
-                    name: t("reservation.form.number_of_tenant"),
+                    name: t("reservation.data.number_of_tenant"),
                   })}
                 />
               )}
@@ -162,19 +162,19 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           name="has_pet"
           control={control}
           render={({ field }) => (
-            <Form.Item label={t("reservation.form.pet_required")}>
+            <Form.Item label={t("reservation.data.pet_required")}>
               <Radio.Group {...field}>
                 <Radio value="true">
-                  {t(`reservation.form.pet_required_option.yes`)}
+                  {t(`reservation.data.pet_required_option.yes`)}
                 </Radio>
                 <Radio value="false">
-                  {t(`reservation.form.pet_required_option.no`)}
+                  {t(`reservation.data.pet_required_option.no`)}
                 </Radio>
               </Radio.Group>
               {errors.has_pet?.type === "required" && (
                 <ErrorText
                   text={t("common.errors.required", {
-                    name: t("reservation.form.pet_required"),
+                    name: t("reservation.data.pet_required"),
                   })}
                 />
               )}
@@ -185,18 +185,18 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           name="vehicle"
           control={control}
           render={({ field }) => (
-            <Form.Item label={t("reservation.form.vehicle")}>
+            <Form.Item label={t("reservation.data.vehicle")}>
               <Radio.Group {...field}>
                 {Object.keys(Vehicle).map((name: string) => (
                   <Radio value={name} key={`vehicle-${name}`}>
-                    {t(`reservation.form.vehicle_option.${name.toLowerCase()}`)}
+                    {t(`reservation.data.vehicle_option.${name.toLowerCase()}`)}
                   </Radio>
                 ))}
               </Radio.Group>
               {errors.age?.type === "required" && (
                 <ErrorText
                   text={t("common.errors.required", {
-                    name: t("reservation.form.vehicle"),
+                    name: t("reservation.data.vehicle"),
                   })}
                 />
               )}
@@ -207,7 +207,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           name="working_address"
           control={control}
           render={({ field }) => (
-            <Form.Item label={t("reservation.form.working_address")}>
+            <Form.Item label={t("reservation.data.working_address")}>
               <Input {...field} />
             </Form.Item>
           )}
@@ -216,7 +216,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           name="additional_request"
           control={control}
           render={({ field }) => (
-            <Form.Item label={t("reservation.form.additional_request")}>
+            <Form.Item label={t("reservation.data.additional_request")}>
               <Input.TextArea {...field} />
             </Form.Item>
           )}
@@ -231,7 +231,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
             loading={isLoading}
             disabled={!isValid}
           >
-            {t("reservation.form.submit")}
+            {t("reservation.data.submit")}
           </Button>
         </Form.Item>
         {isError && (
