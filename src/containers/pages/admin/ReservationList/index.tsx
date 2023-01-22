@@ -4,6 +4,8 @@ import { PageWrapper } from "./index.styles";
 import { useGetAllReservationsQuery } from "redux/api/reservation.api";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
+import {Table} from "antd";
+import {data} from "browserslist";
 
 const ReservationListPage = () => {
   const {
@@ -31,16 +33,36 @@ const ReservationListPage = () => {
     }
   }, [isLoading]);
 
+  const columns = [
+    {
+      title: 'Fullname',
+      dataIndex: 'fullname',
+      key: 'fullname',
+    },
+    {
+      title: 'Phone',
+      dataIndex: 'phone',
+      key: 'phone',
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
+    },
+  ];
+
   return (
     <PageWrapper className="center-page">
-      <img src={livingBuddLogo} className="App-logo" alt="logo" />
       {reservations?.length === 0 ? (
         <div>No</div>
       ) : (
         <div>
-          {reservations?.map((reservation) => (
-            <div key={`reservation.email`}>{reservation.email}</div>
-          ))}
+          <Table columns={columns} dataSource={reservations} />
         </div>
       )}
     </PageWrapper>
