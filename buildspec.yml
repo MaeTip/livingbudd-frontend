@@ -1,5 +1,11 @@
 version: 0.2
 
+env:
+  variables:
+    APP_SERVER_ENDPOINT: api_endpoint
+    BUCKET_NAME: bucket_name
+    DISTRIBUTION_ID: distribution_id
+
 phases:
   install:
     runtime-versions:
