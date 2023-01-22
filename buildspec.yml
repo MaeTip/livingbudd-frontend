@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    APP_SERVER_ENDPOINT: api_endpoint
+    REACT_APP_API_ENDPOINT: react_app_api_endpoint
     BUCKET_NAME: bucket_name
     DISTRIBUTION_ID: distribution_id
 
@@ -13,7 +13,7 @@ phases:
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
-      - echo APP_SERVER_ENDPOINT=${APP_SERVER_ENDPOINT} >> .env
+      - echo REACT_APP_API_ENDPOINT=${REACT_APP_API_ENDPOINT} >> .env
       - yarn install
   build:
     commands:
