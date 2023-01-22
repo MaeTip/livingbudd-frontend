@@ -19,9 +19,19 @@ export const reservationApi = createApi({
       transformResponse: (result: { data: { reservation: IReservation } }) =>
         result.data.reservation,
     }),
+    getAllReservations: builder.query<IReservation[], void>({
+      query() {
+        return {
+          url: `/reservations`,
+          credentials: 'include',
+        };
+      },
+      transformResponse: (result: { data: IReservation[] }) => result.data
+    }),
   }),
 });
 
 export const {
-  useCreateReservationMutation
+  useCreateReservationMutation,
+  useGetAllReservationsQuery,
 } = reservationApi;

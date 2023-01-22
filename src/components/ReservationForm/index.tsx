@@ -52,76 +52,6 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           )}
         />
         <Controller
-          name="email"
-          control={control}
-          rules={{
-            required: true,
-            pattern: {
-              value: /\S+@\S+\.\S+/,
-              message: "Entered value does not match email format",
-            },
-          }}
-          render={({ field }) => (
-            <Form.Item required label={t("reservation.form.email")}>
-              <Input {...field} />
-              {errors.email?.type === "required" && (
-                <ErrorText
-                  text={t("common.errors.required", {
-                    name: t("reservation.form.email"),
-                  })}
-                />
-              )}
-              {errors.email?.type === "pattern" && (
-                <ErrorText text={t("common.errors.email_pattern")} />
-              )}
-            </Form.Item>
-          )}
-        />
-        <Controller
-          name="age"
-          control={control}
-          rules={{
-            required: true,
-          }}
-          render={({ field }) => (
-            <Form.Item required label={t("reservation.form.age")}>
-              <InputNumber {...field} min={10} max={90} />
-              {errors.age?.type === "required" && (
-                <ErrorText
-                  text={t("common.errors.required", {
-                    name: t("reservation.form.age"),
-                  })}
-                />
-              )}
-            </Form.Item>
-          )}
-        />
-        <Controller
-          name="gender"
-          control={control}
-          rules={{
-            required: true,
-          }}
-          render={({ field }) => (
-            <Form.Item required label={t("reservation.form.gender")}>
-              <Radio.Group {...field}>
-                {Object.keys(Gender).map((option: string) => (
-                  <Radio value={option} key={`gender-${option}`}>
-                    {t(`reservation.form.gender_option.${option.toLowerCase()}`)}
-                  </Radio>
-                ))}
-              </Radio.Group>
-              {errors.age?.type === "required" && (
-                <ErrorText
-                  text={t("common.errors.required", {
-                    name: t("reservation.form.gender"),
-                  })}
-                />
-              )}
-            </Form.Item>
-          )}
-        />
-        <Controller
           name="phone"
           control={control}
           rules={{
@@ -141,6 +71,69 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           )}
         />
         <Controller
+          name="email"
+          control={control}
+          rules={{
+            pattern: {
+              value: /\S+@\S+\.\S+/,
+              message: "Entered value does not match email format",
+            },
+          }}
+          render={({ field }) => (
+            <Form.Item label={t("reservation.form.email")}>
+              <Input {...field} />
+              {errors.email?.type === "required" && (
+                <ErrorText
+                  text={t("common.errors.required", {
+                    name: t("reservation.form.email"),
+                  })}
+                />
+              )}
+              {errors.email?.type === "pattern" && (
+                <ErrorText text={t("common.errors.email_pattern")} />
+              )}
+            </Form.Item>
+          )}
+        />
+        <Controller
+          name="age"
+          control={control}
+          render={({ field }) => (
+            <Form.Item label={t("reservation.form.age")}>
+              <InputNumber {...field} min={10} max={90} />
+              {errors.age?.type === "required" && (
+                <ErrorText
+                  text={t("common.errors.required", {
+                    name: t("reservation.form.age"),
+                  })}
+                />
+              )}
+            </Form.Item>
+          )}
+        />
+        <Controller
+          name="gender"
+          control={control}
+          render={({ field }) => (
+            <Form.Item label={t("reservation.form.gender")}>
+              <Radio.Group {...field}>
+                {Object.keys(Gender).map((option: string) => (
+                  <Radio value={option} key={`gender-${option}`}>
+                    {t(`reservation.form.gender_option.${option.toLowerCase()}`)}
+                  </Radio>
+                ))}
+              </Radio.Group>
+              {errors.age?.type === "required" && (
+                <ErrorText
+                  text={t("common.errors.required", {
+                    name: t("reservation.form.gender"),
+                  })}
+                />
+              )}
+            </Form.Item>
+          )}
+        />
+        <Controller
           name="contact"
           control={control}
           render={({ field }) => (
@@ -152,11 +145,8 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
         <Controller
           name="number_of_tenant"
           control={control}
-          rules={{
-            required: true,
-          }}
           render={({ field }) => (
-            <Form.Item required label={t("reservation.form.number_of_tenant")}>
+            <Form.Item label={t("reservation.form.number_of_tenant")}>
               <InputNumber {...field} min={1} max={10} />
               {errors.age?.type === "required" && (
                 <ErrorText

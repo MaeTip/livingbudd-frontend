@@ -1,14 +1,15 @@
 export interface IReservation {
-  email: string;
+  id: number
+  email?: string;
   fullname: string;
-  gender: Gender;
-  age: number;
+  gender?: Gender;
+  age?: number;
   phone: string;
   contact?: string;
-  number_of_tenant: number;
-  has_pet: boolean;
+  number_of_tenant?: number;
+  has_pet?: boolean;
   vehicle?: Vehicle;
-  working_address: string;
+  working_address?: string;
   additional_request?: string;
 }
 

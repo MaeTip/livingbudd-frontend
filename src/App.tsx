@@ -9,9 +9,11 @@ import UnauthorizePage from "./containers/pages/UnauthorizationPage";
 import CreateReservationPage from "./containers/pages/CreateReservationPage";
 
 import { ToastContainer } from 'react-toastify';
+import { routes } from "./utils/routers";
 import 'react-toastify/dist/ReactToastify.css';
 import './i18n'
 import './App.css';
+import ReservationList from "./containers/pages/admin/ReservationList";
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
             <Route element={<PrivateRoute allowedRoles={['ADMIN']} />}>
               <Route element={<DefaultLayout />}>
                 <Route path='dashboard' element={<DashboardPage />} />
+                <Route path={routes.adminReservation} element={<ReservationList />} />
               </Route>
             </Route>
           </Route>
