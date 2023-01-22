@@ -5,7 +5,7 @@ import {
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query";
 
-const baseUrl = `${process.env.REACT_APP_SERVER_ENDPOINT}/api/`;
+const baseUrl = `${process.env.APP_SERVER_ENDPOINT}/api/`;
 
 export interface GenericResponse {
   status: string;

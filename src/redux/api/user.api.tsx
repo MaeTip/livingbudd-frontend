@@ -3,7 +3,7 @@ import { setUser } from '../slice/user.slice';
 import { IUser } from '../dto';
 import type { RootState } from '../store'
 
-const API_BASE_URL = process.env.REACT_APP_SERVER_ENDPOINT as string;
+const API_BASE_URL = process.env.APP_SERVER_ENDPOINT as string;
 
 export const userApi = createApi({
   reducerPath: 'userApi',
