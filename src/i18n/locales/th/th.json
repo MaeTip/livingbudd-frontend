@@ -27,7 +27,7 @@
     },
     "data": {
       "email": "อีเมล์",
-      "fullname": "ขื่อติดต่อกลับ",
+      "fullname": "ชื่อติดต่อกลับ",
       "age": "อายุ",
       "gender": "เพศ",
       "phone": "เบอร์ติดต่อ",
@@ -37,7 +37,7 @@
       "vehicle": "ประเภทยานพาหนะ",
       "working_address": "สถานที่ทำงาน",
       "additional_request": "ความต้องการอื่นๆ",
-      "submit": "จอง",
+      "submit": "ลงทะเบียน",
       "vehicle_option": {
         "motorcycle":  "รถจักรยานยนต์",
         "car": "รถยนต์",
