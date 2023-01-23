@@ -1,8 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { PageWrapper } from "./index.styles";
-import { useGetAllReservationsQuery } from "redux/api/reservation.api";
+import {
+  useDeleteReservationMutation,
+  useGetAllReservationsQuery,
+} from "redux/api/reservation.api";
 import { toast } from "react-toastify";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { message, Modal, Table } from "antd";
 import Title from "antd/es/typography/Title";
 import moment from "moment";
@@ -16,13 +19,18 @@ import { IReservation } from "redux/dto/reservation.dto";
 
 const ReservationListPage = () => {
   const { confirm } = Modal;
+  const { t } = useTranslation();
   const {
     isLoading,
     isError,
     error,
     data: reservations,
   } = useGetAllReservationsQuery();
-  const { t } = useTranslation();
+  const [deleteReservation, { isSuccess: isDeleteSuccess }] =
+    useDeleteReservationMutation();
+
+  const [dataSource, setDataSource] = useState<IReservation[] | undefined>([]);
+  const [reservationId, setReservationId] = useState<number | null>(null);
 
   useEffect(() => {
     if (isError) {
@@ -37,8 +45,22 @@ const ReservationListPage = () => {
           position: "top-right",
         });
       }
+    } else {
+      setDataSource(reservations);
     }
   }, [isLoading]);
+
+  useEffect(() => {
+    if (isDeleteSuccess && reservationId) {
+      setDataSource((pre) => {
+        return pre?.filter((record) => record.id !== reservationId);
+      });
+      setReservationId(null);
+      toast.success(t("reservation.delete.successful"), {
+        position: "top-right",
+      });
+    }
+  }, [isDeleteSuccess]);
 
   const onClickedDeleteButton = (data: IReservation): void => {
     confirm({
@@ -54,9 +76,17 @@ const ReservationListPage = () => {
           </div>
         </div>
       ),
+      okText: t("common.ok"),
+      okType: "danger",
+      okButtonProps: {
+        type: "primary",
+      },
+      autoFocusButton: "cancel",
+      cancelText: t("common.cancel"),
       onOk() {
-        console.log("OK");
-      }
+        setReservationId(data.id);
+        deleteReservation(data.id as unknown as string);
+      },
     });
   };
 
@@ -67,17 +97,17 @@ const ReservationListPage = () => {
   const columns: any = [
     {
       title: "Action",
-      key: "operation",
+      key: "actions",
       width: 80,
       fixed: "left",
       responsive: ["md"],
       render: (record: IReservation) => (
-        <div className="actions">
+        <div className="actions" key={`reservation-action-${record.id}`}>
           <a onClick={() => onClickedEditButton(record)}>
             <EditOutlined />
           </a>
           <a onClick={() => onClickedDeleteButton(record)}>
-            <DeleteOutlined />
+            <DeleteOutlined style={{ color: "red" }} />
           </a>
         </div>
       ),
@@ -85,7 +115,7 @@ const ReservationListPage = () => {
     {
       title: t("reservation.data.created_at"),
       dataIndex: "createdAt",
-      key: "createdAt",
+      key: "created_at",
       width: 120,
       fixed: "left",
       defaultSortOrder: "descend",
@@ -158,8 +188,8 @@ const ReservationListPage = () => {
     {
       title: t("reservation.data.additional_request"),
       dataIndex: "additional_request",
-      responsive: ["md"],
       key: "additional_request",
+      responsive: ["md"],
       width: 200,
     },
     {
@@ -173,14 +203,15 @@ const ReservationListPage = () => {
 
   return (
     <PageWrapper>
-      {reservations?.length === 0 ? (
+      {dataSource?.length === 0 ? (
         <div>No</div>
       ) : (
         <div>
           <Title>ลงทะเบียนจองห้องพัก</Title>
           <Table
             columns={columns}
-            dataSource={reservations}
+            dataSource={dataSource}
+            rowKey={"id"}
             scroll={{ y: "calc(100vh) - 200px" }}
           />
         </div>

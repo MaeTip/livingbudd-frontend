@@ -28,10 +28,20 @@ export const reservationApi = createApi({
       },
       transformResponse: (result: { data: IReservation[] }) => result.data
     }),
+    deleteReservation: builder.mutation<IReservation, string>({
+      query(id) {
+        return {
+          url: `/reservations/${id}`,
+          method: 'Delete',
+          credentials: 'include',
+        };
+      },
+    }),
   }),
 });
 
 export const {
   useCreateReservationMutation,
   useGetAllReservationsQuery,
+  useDeleteReservationMutation
 } = reservationApi;
