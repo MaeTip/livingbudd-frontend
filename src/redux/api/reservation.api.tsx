@@ -28,6 +28,20 @@ export const reservationApi = createApi({
       },
       transformResponse: (result: { data: IReservation[] }) => result.data
     }),
+    updateReservation: builder.mutation<IReservation, { id: number; reservation: FormData }>(
+      {
+        query({ id, reservation }) {
+          return {
+            url: `/reservations/${id}`,
+            method: 'PATCH',
+            credentials: 'include',
+            body: reservation,
+          };
+        },
+        transformResponse: (response: { data: IReservation }) =>
+          response.data,
+      }
+    ),
     deleteReservation: builder.mutation<IReservation, string>({
       query(id) {
         return {
@@ -42,6 +56,7 @@ export const reservationApi = createApi({
 
 export const {
   useCreateReservationMutation,
+  useUpdateReservationMutation,
   useGetAllReservationsQuery,
   useDeleteReservationMutation
 } = reservationApi;

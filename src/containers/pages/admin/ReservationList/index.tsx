@@ -3,10 +3,11 @@ import { PageWrapper } from "./index.styles";
 import {
   useDeleteReservationMutation,
   useGetAllReservationsQuery,
+  useUpdateReservationMutation,
 } from "redux/api/reservation.api";
 import { toast } from "react-toastify";
 import React, { useEffect, useState } from "react";
-import { message, Modal, Table } from "antd";
+import { Col, Modal, Row, Table } from "antd";
 import Title from "antd/es/typography/Title";
 import moment from "moment";
 import {
@@ -16,21 +17,38 @@ import {
   ExclamationCircleFilled,
 } from "@ant-design/icons";
 import { IReservation } from "redux/dto/reservation.dto";
+import ReservationForm from "components/ReservationForm";
 
 const ReservationListPage = () => {
   const { confirm } = Modal;
   const { t } = useTranslation();
+  const [deleteReservation, { isSuccess: isDeleteSuccess }] =
+    useDeleteReservationMutation();
   const {
     isLoading,
     isError,
     error,
     data: reservations,
   } = useGetAllReservationsQuery();
-  const [deleteReservation, { isSuccess: isDeleteSuccess }] =
-    useDeleteReservationMutation();
+  const [
+    updateReservation,
+    {
+      isLoading: isUpdateLoading,
+      isError: isUpdateError,
+      error: updateError,
+      isSuccess: isUpdateSuccess,
+      data: updatedReservation,
+    },
+  ] = useUpdateReservationMutation();
 
   const [dataSource, setDataSource] = useState<IReservation[] | undefined>([]);
-  const [reservationId, setReservationId] = useState<number | null>(null);
+  const [reservationData, setReservationData] = useState<
+    IReservation | undefined
+  >();
+  const [deletedReservationId, setDeleteReservationId] = useState<
+    number | null
+  >(null);
+  const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
   useEffect(() => {
     if (isError) {
@@ -51,16 +69,57 @@ const ReservationListPage = () => {
   }, [isLoading]);
 
   useEffect(() => {
-    if (isDeleteSuccess && reservationId) {
+    if (isDeleteSuccess && deletedReservationId) {
       setDataSource((pre) => {
-        return pre?.filter((record) => record.id !== reservationId);
+        return pre?.filter((record) => record.id !== deletedReservationId);
       });
-      setReservationId(null);
+      setDeleteReservationId(null);
       toast.success(t("reservation.delete.successful"), {
         position: "top-right",
       });
     }
   }, [isDeleteSuccess]);
+
+  useEffect(() => {
+    if (isUpdateError) {
+      if (Array.isArray((updateError as any).data.error)) {
+        (updateError as any).data.error.forEach((el: any) =>
+          toast.error(el.message, {
+            position: "top-right",
+          })
+        );
+      } else {
+        toast.error((updateError as any).data.message, {
+          position: "top-right",
+        });
+      }
+    }
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (updatedReservation) {
+      const updateDataSource = dataSource?.map((record) =>
+        record.id === reservationData?.id
+          ? {
+              ...updatedReservation,
+            }
+          : record
+      );
+      setDataSource(updateDataSource);
+      setReservationData(undefined);
+      setIsEditMode(false);
+      toast.success(t("reservation.update.successful"));
+    }
+  }, [isUpdateSuccess]);
+
+  const onUpdateFormSubmit = (values: any) => {
+    if (reservationData?.id) {
+      updateReservation({
+        id: reservationData.id,
+        reservation: values,
+      });
+    }
+  };
 
   const onClickedDeleteButton = (data: IReservation): void => {
     confirm({
@@ -84,14 +143,15 @@ const ReservationListPage = () => {
       autoFocusButton: "cancel",
       cancelText: t("common.cancel"),
       onOk() {
-        setReservationId(data.id);
+        setDeleteReservationId(data.id);
         deleteReservation(data.id as unknown as string);
       },
     });
   };
 
   const onClickedEditButton = (data: IReservation) => {
-    message.info(`click edit for ${data.fullname}`);
+    setReservationData(data);
+    setIsEditMode(true);
   };
 
   const columns: any = [
@@ -136,7 +196,7 @@ const ReservationListPage = () => {
       title: t("reservation.data.phone"),
       dataIndex: "phone",
       key: "phone",
-      width: 120,
+      width: 150,
       fixed: "left",
     },
     {
@@ -186,18 +246,25 @@ const ReservationListPage = () => {
         t(`reservation.data.option.vehicle.${value.toLowerCase()}`),
     },
     {
-      title: t("reservation.data.additional_request"),
-      dataIndex: "additional_request",
-      key: "additional_request",
-      responsive: ["md"],
-      width: 200,
-    },
-    {
       title: t("reservation.data.contact"),
       dataIndex: "contact",
       key: "contact",
       width: 200,
       responsive: ["md"],
+    },
+    {
+      title: t("reservation.data.working_address"),
+      dataIndex: "working_address",
+      key: "working_address",
+      responsive: ["md"],
+      width: 200,
+    },
+    {
+      title: t("reservation.data.additional_request"),
+      dataIndex: "additional_request",
+      key: "additional_request",
+      responsive: ["md"],
+      width: 200,
     },
   ];
 
@@ -216,6 +283,26 @@ const ReservationListPage = () => {
           />
         </div>
       )}
+      <Modal
+        centered
+        open={isEditMode}
+        onCancel={() => setIsEditMode(false)}
+        footer={null}
+        destroyOnClose={true}
+      >
+        <Row>
+          <Col md={{ offset: 4 }} sm={{ offset: 0 }}>
+            <Title>{t("reservation.form.edit_title")}</Title>
+          </Col>
+        </Row>
+        <ReservationForm
+          onFormSubmit={onUpdateFormSubmit}
+          isLoading={isUpdateLoading}
+          isError={isUpdateError}
+          error={updateError}
+          data={reservationData}
+        />
+      </Modal>
     </PageWrapper>
   );
 };

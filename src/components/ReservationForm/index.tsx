@@ -1,7 +1,7 @@
 import { Button, Form, Input, InputNumber, Radio } from "antd";
 import { Controller, useForm } from "react-hook-form";
 import ErrorText from "components/ErrorText";
-import { Gender, Vehicle } from "redux/dto/reservation.dto";
+import {Gender, IReservation, Vehicle} from "redux/dto/reservation.dto";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Wrapper } from "./index.styles";
@@ -10,16 +10,17 @@ interface FormProps {
   onFormSubmit: any;
   isLoading: boolean,
   isError: boolean
-  error: any
+  error: any,
+  data?: IReservation
 }
 
-const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, error }) => {
+const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, error, data }) => {
   const { t } = useTranslation();
   const {
     control,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm();
+  } = useForm({ mode: 'onChange' });
 
   return (
     <Wrapper>
@@ -38,6 +39,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           rules={{
             required: true,
           }}
+          defaultValue={data?.fullname}
           render={({ field }) => (
             <Form.Item required label={t("reservation.data.fullname")}>
               <Input {...field} autoFocus />
@@ -57,6 +59,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           rules={{
             required: true,
           }}
+          defaultValue={data?.phone}
           render={({ field }) => (
             <Form.Item required label={t("reservation.data.phone")}>
               <Input {...field} />
@@ -79,6 +82,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
               message: "Entered value does not match email format",
             },
           }}
+          defaultValue={data?.email}
           render={({ field }) => (
             <Form.Item label={t("reservation.data.email")}>
               <Input {...field} />
@@ -98,6 +102,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
         <Controller
           name="age"
           control={control}
+          defaultValue={data?.age}
           render={({ field }) => (
             <Form.Item label={t("reservation.data.age")}>
               <InputNumber {...field} min={10} max={90} />
@@ -114,6 +119,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
         <Controller
           name="gender"
           control={control}
+          defaultValue={data?.gender}
           render={({ field }) => (
             <Form.Item label={t("reservation.data.gender")}>
               <Radio.Group {...field}>
@@ -136,6 +142,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
         <Controller
           name="contact"
           control={control}
+          defaultValue={data?.contact}
           render={({ field }) => (
             <Form.Item label={t("reservation.data.contact")}>
               <Input {...field} />
@@ -145,6 +152,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
         <Controller
           name="number_of_tenant"
           control={control}
+          defaultValue={data?.number_of_tenant}
           render={({ field }) => (
             <Form.Item label={t("reservation.data.number_of_tenant")}>
               <InputNumber {...field} min={1} max={10} />
@@ -161,15 +169,15 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
         <Controller
           name="has_pet"
           control={control}
+          defaultValue={data?.has_pet}
           render={({ field }) => (
             <Form.Item label={t("reservation.data.pet_required")}>
               <Radio.Group {...field}>
-                <Radio value="true">
-                  {t(`reservation.data.option.pet_required.yes`)}
-                </Radio>
-                <Radio value="false">
-                  {t(`reservation.data.option.pet_required.no`)}
-                </Radio>
+                {[true, false].map((option: boolean) => (
+                  <Radio value={option} key={`has-pet-${option}`}>
+                    {t(`reservation.data.option.pet_required.${option ? 'yes': 'no'}`)}
+                  </Radio>
+                ))}
               </Radio.Group>
               {errors.has_pet?.type === "required" && (
                 <ErrorText
@@ -184,6 +192,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
         <Controller
           name="vehicle"
           control={control}
+          defaultValue={data?.vehicle}
           render={({ field }) => (
             <Form.Item label={t("reservation.data.vehicle")}>
               <Radio.Group {...field}>
@@ -206,6 +215,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
         <Controller
           name="working_address"
           control={control}
+          defaultValue={data?.working_address}
           render={({ field }) => (
             <Form.Item label={t("reservation.data.working_address")}>
               <Input {...field} />
@@ -215,6 +225,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
         <Controller
           name="additional_request"
           control={control}
+          defaultValue={data?.additional_request}
           render={({ field }) => (
             <Form.Item label={t("reservation.data.additional_request")}>
               <Input.TextArea {...field} />
@@ -231,10 +242,10 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
             loading={isLoading}
             disabled={!isValid}
           >
-            {t("reservation.form.submit")}
+            { !data ? t("reservation.form.submit") : t("reservation.form.edit_submit")}
           </Button>
         </Form.Item>
-        {isError && (
+        {(isError && error) && (
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             {(error as any)?.data?.message.map((message: any, key: any) => (
               <ErrorText text={message} key={`error-${key}`} />
