@@ -119,7 +119,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
               <Radio.Group {...field}>
                 {Object.keys(Gender).map((option: string) => (
                   <Radio value={option} key={`gender-${option}`}>
-                    {t(`reservation.data.gender_option.${option.toLowerCase()}`)}
+                    {t(`reservation.data.option.gender.${option.toLowerCase()}`)}
                   </Radio>
                 ))}
               </Radio.Group>
@@ -165,10 +165,10 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
             <Form.Item label={t("reservation.data.pet_required")}>
               <Radio.Group {...field}>
                 <Radio value="true">
-                  {t(`reservation.data.pet_required_option.yes`)}
+                  {t(`reservation.data.option.pet_required.yes`)}
                 </Radio>
                 <Radio value="false">
-                  {t(`reservation.data.pet_required_option.no`)}
+                  {t(`reservation.data.option.pet_required.no`)}
                 </Radio>
               </Radio.Group>
               {errors.has_pet?.type === "required" && (
@@ -189,7 +189,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
               <Radio.Group {...field}>
                 {Object.keys(Vehicle).map((name: string) => (
                   <Radio value={name} key={`vehicle-${name}`}>
-                    {t(`reservation.data.vehicle_option.${name.toLowerCase()}`)}
+                    {t(`reservation.data.option.vehicle.${name.toLowerCase()}`)}
                   </Radio>
                 ))}
               </Radio.Group>
@@ -231,7 +231,7 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
             loading={isLoading}
             disabled={!isValid}
           >
-            {t("reservation.data.submit")}
+            {t("reservation.form.submit")}
           </Button>
         </Form.Item>
         {isError && (

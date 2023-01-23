@@ -71,7 +71,7 @@ const CreateReservationPage = () => {
               <>
                 <Row>
                   <Col md={{ offset: 4 }} sm={{ offset: 0 }}>
-                    <Title>ลงทะเบียนจองห้องพัก</Title>
+                    <Title>{t('reservation.form.title')}</Title>
                   </Col>
                 </Row>
                 <ReservationForm
