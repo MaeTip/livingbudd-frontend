@@ -22,20 +22,27 @@
       "delete": "คุณต้องการจะลบข้อมูลนี้ หรือไม่?"
     },
     "ok": "ตกลง",
-    "cancel": "ยกเลิก"
+    "cancel": "ยกเลิก",
+    "option": {
+      "yes_no": {
+        "yes":  "ใช่",
+        "no": "ไม่ใช่"
+      }
+    },
+    "notification": {
+      "delete_successful": "คุณได้ลบข้อมูล \"{{name}}\" เรียบร้อยแล้ว",
+      "update_successful": "คุณได้แก้ไขข้อมูล \"{{name}}\" เรียบร้อยแล้ว"
+    }
   },
   "reservation": {
+    "title": "ลงทะเบียนจองห้องพัก",
+    "area": {
+      "nonthaburi": "อ. เมือง จ.นนทบุรี"
+    },
     "successful": {
       "title": "ขอบคุณที่ลงทะเบียนจองห้องพัก",
       "description": "กรณีห้องว่างแอดมินจะตอบกลับตามที่อยู่ ที่ติดต่อ ที่ท่านได้แจ้งไว้ ตามลำดับการจอง \n ติดต่อข้อมูลเพิ่มเติม 084-488-6178",
-      "contact": "",
       "button": "ลงทะเบียนอีกครั้ง"
-    },
-    "delete": {
-      "successful": "คุณได้ลบข้อมูลการจองเรียบร้อยแล้ว"
-    },
-    "update": {
-      "successful": "คุณได้แก้ไขข้อมูลการจองเรียบร้อยแล้ว"
     },
     "form": {
       "title": "ลงทะเบียนจองห้องพัก",
@@ -44,7 +51,8 @@
       "edit_submit": "บันทึก"
     },
     "table_columns": {
-      "pet_required": "เลี้ยงสัตว์",
+      "pet_required": "เลี้ยงสัตว์?",
+      "air_conditioner_request": "แอร์?",
       "number_of_tenant": "จำนวนคน",
       "vehicle": "ยานพาหนะ"
     },
@@ -60,6 +68,7 @@
       "vehicle": "ประเภทยานพาหนะ",
       "working_address": "สถานที่ทำงาน",
       "additional_request": "ความต้องการอื่นๆ",
+      "air_conditioner_request": "ต้องการแอร์หรือไม่",
       "created_at": "วันที่",
       "option": {
         "vehicle": {

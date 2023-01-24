@@ -74,9 +74,9 @@ const ReservationListPage = () => {
         return pre?.filter((record) => record.id !== deletedReservationId);
       });
       setDeleteReservationId(null);
-      toast.success(t("reservation.delete.successful"), {
-        position: "top-right",
-      });
+      toast.success(t("common.notification.delete_successful", {
+        name: t("reservation.title"),
+      }));
     }
   }, [isDeleteSuccess]);
 
@@ -84,14 +84,10 @@ const ReservationListPage = () => {
     if (isUpdateError) {
       if (Array.isArray((updateError as any).data.error)) {
         (updateError as any).data.error.forEach((el: any) =>
-          toast.error(el.message, {
-            position: "top-right",
-          })
+          toast.error(el.message)
         );
       } else {
-        toast.error((updateError as any).data.message, {
-          position: "top-right",
-        });
+        toast.error((updateError as any).data.message);
       }
     }
   }, [isLoading]);
@@ -108,7 +104,9 @@ const ReservationListPage = () => {
       setDataSource(updateDataSource);
       setReservationData(undefined);
       setIsEditMode(false);
-      toast.success(t("reservation.update.successful"));
+      toast.success(t("common.notification.update_successful", {
+        name: t("reservation.title"),
+      }));
     }
   }, [isUpdateSuccess]);
 
@@ -237,6 +235,14 @@ const ReservationListPage = () => {
       render: (value: boolean) => (value ? <CheckOutlined /> : ""),
     },
     {
+      title: t("reservation.table_columns.air_conditioner_request"),
+      dataIndex: "air_conditioner_request",
+      key: "air_conditioner_request",
+      width: 100,
+      responsive: ["md"],
+      render: (value: boolean) => (value ? <CheckOutlined /> : ""),
+    },
+    {
       title: t("reservation.table_columns.vehicle"),
       dataIndex: "vehicle",
       key: "vehicle",
@@ -274,12 +280,13 @@ const ReservationListPage = () => {
         <div>No</div>
       ) : (
         <div>
-          <Title>ลงทะเบียนจองห้องพัก</Title>
+          <Title>{t('reservation.title')}</Title>
           <Table
             columns={columns}
             dataSource={dataSource}
             rowKey={"id"}
             scroll={{ y: "calc(100vh) - 200px" }}
+            pagination={{ pageSize: 15 }}
           />
         </div>
       )}

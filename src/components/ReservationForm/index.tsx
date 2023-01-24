@@ -100,6 +100,16 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           )}
         />
         <Controller
+          name="contact"
+          control={control}
+          defaultValue={data?.contact}
+          render={({ field }) => (
+            <Form.Item label={t("reservation.data.contact")}>
+              <Input {...field} />
+            </Form.Item>
+          )}
+        />
+        <Controller
           name="age"
           control={control}
           defaultValue={data?.age}
@@ -129,40 +139,22 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
                   </Radio>
                 ))}
               </Radio.Group>
-              {errors.age?.type === "required" && (
-                <ErrorText
-                  text={t("common.errors.required", {
-                    name: t("reservation.data.gender"),
-                  })}
-                />
-              )}
             </Form.Item>
           )}
         />
         <Controller
-          name="contact"
+          name="air_conditioner_request"
           control={control}
-          defaultValue={data?.contact}
+          defaultValue={data?.air_conditioner_request}
           render={({ field }) => (
-            <Form.Item label={t("reservation.data.contact")}>
-              <Input {...field} />
-            </Form.Item>
-          )}
-        />
-        <Controller
-          name="number_of_tenant"
-          control={control}
-          defaultValue={data?.number_of_tenant}
-          render={({ field }) => (
-            <Form.Item label={t("reservation.data.number_of_tenant")}>
-              <InputNumber {...field} min={1} max={10} />
-              {errors.age?.type === "required" && (
-                <ErrorText
-                  text={t("common.errors.required", {
-                    name: t("reservation.data.number_of_tenant"),
-                  })}
-                />
-              )}
+            <Form.Item label={t("reservation.data.air_conditioner_request")}>
+              <Radio.Group {...field}>
+                {[true, false].map((option: boolean) => (
+                  <Radio value={option} key={`air-conditioner-request-${option}`}>
+                    {t(`common.option.yes_no.${option ? 'yes': 'no'}`)}
+                  </Radio>
+                ))}
+              </Radio.Group>
             </Form.Item>
           )}
         />
@@ -202,13 +194,16 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
                   </Radio>
                 ))}
               </Radio.Group>
-              {errors.age?.type === "required" && (
-                <ErrorText
-                  text={t("common.errors.required", {
-                    name: t("reservation.data.vehicle"),
-                  })}
-                />
-              )}
+            </Form.Item>
+          )}
+        />
+        <Controller
+          name="number_of_tenant"
+          control={control}
+          defaultValue={data?.number_of_tenant || 1}
+          render={({ field }) => (
+            <Form.Item label={t("reservation.data.number_of_tenant")}>
+              <InputNumber {...field} min={1} max={10} />
             </Form.Item>
           )}
         />

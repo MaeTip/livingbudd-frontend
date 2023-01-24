@@ -11,7 +11,7 @@ import SuccessfulResult from "components/ResultSuccuessful";
 import { useTranslation } from "react-i18next";
 
 const CreateReservationPage = () => {
-  const { Title } = Typography;
+  const { Title, Paragraph } = Typography;
   const { t } = useTranslation();
 
   const [createReservation, { isLoading, isError, error, isSuccess, reset }] =
@@ -58,10 +58,7 @@ const CreateReservationPage = () => {
                   title={t("reservation.successful.title")}
                   subtitle={t("reservation.successful.description")}
                   extra={[
-                    <Button
-                      onClick={onReset}
-                      key={"reservation_button"}
-                    >
+                    <Button onClick={onReset} key={"reservation_button"}>
                       {t("reservation.successful.button")}
                     </Button>,
                   ]}
@@ -70,8 +67,12 @@ const CreateReservationPage = () => {
             ) : (
               <>
                 <Row>
-                  <Col md={{ offset: 4 }} sm={{ offset: 0 }}>
-                    <Title>{t('reservation.form.title')}</Title>
+                  <Col md={{ offset: 3 }} sm={{ offset: 0 }}>
+                    <Title className="title">
+                      {t("reservation.form.title")}
+                      <br />
+                      <span className={'area-name'}>{t("reservation.area.nonthaburi")}</span>
+                    </Title>
                   </Col>
                 </Row>
                 <ReservationForm
