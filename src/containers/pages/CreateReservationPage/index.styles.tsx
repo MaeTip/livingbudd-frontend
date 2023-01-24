@@ -17,6 +17,12 @@ export const Wrapper = styled.div`
     margin-right: auto;
   }
 
+  .title {
+    .area-name {
+      font-size: 60%;
+    }  
+  }
+  
   @media only screen and (min-width: 768px) {
     background: #eee;
     
@@ -40,6 +46,7 @@ export const Wrapper = styled.div`
       top: 50%;
       transform: translateY(-50%);
       background: url(${backgroundImage}) #FFF no-repeat top center;
+      background-size: cover;
     }
     
     .reservation-successful {
