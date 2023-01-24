@@ -8,6 +8,7 @@ export interface IReservation {
   contact?: string;
   number_of_tenant?: number;
   has_pet?: boolean;
+  air_conditioner_request?: boolean;
   vehicle?: Vehicle;
   working_address?: string;
   additional_request?: string;
