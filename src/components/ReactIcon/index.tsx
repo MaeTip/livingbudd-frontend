@@ -10,6 +10,7 @@ interface ReactIconProps {
   color?: string;
   size?: string;
   className?: string;
+  border?: boolean;
 }
 
 const ReactIcon: FC<ReactIconProps> = ({
@@ -18,7 +19,9 @@ const ReactIcon: FC<ReactIconProps> = ({
   color = brandingColor.light.orange.primary,
   size = "25px",
   className,
+  border = true,
 }) => {
+  const borderStyle = border ? `1px solid ${color}` : '0 none'
   return (
     <Wrapper className={className}>
       <IconContext.Provider
@@ -27,7 +30,7 @@ const ReactIcon: FC<ReactIconProps> = ({
           className: "icon",
           size: size,
           style: {
-            border: `1px solid ${color}`,
+            border: borderStyle,
           },
         }}
       >
