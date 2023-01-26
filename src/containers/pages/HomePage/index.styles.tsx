@@ -109,9 +109,10 @@ export const Wrapper = styled.div`
     position: relative;
     
     .container {
-      min-height: 450px;
       position: relative;
       padding-bottom: 50px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
     
     &:before {

@@ -65,7 +65,7 @@ const HomePage = () => {
                   {t("home.why_us_section.description_1")}
                 </Title>
               </Col>
-              <Col offset={3} span={6}>
+              <Col offset={3} span={7}>
                 <Title level={4}>
                   {t("home.why_us_section.description_2")}
                 </Title>
