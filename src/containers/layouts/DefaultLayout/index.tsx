@@ -1,11 +1,11 @@
-import { Outlet } from 'react-router-dom';
-import { Layout } from 'antd';
-import {Wrapper} from "./index.styles";
+import { Outlet } from "react-router-dom";
+import { Layout } from "antd";
+import { Wrapper } from "./index.styles";
 import AppHeader from "components/AppHeader";
 
 const { Content } = Layout;
 
-const DefaultLayout = () => {
+const AdminLayout = () => {
   return (
     <Layout>
       <AppHeader />
@@ -18,4 +18,4 @@ const DefaultLayout = () => {
   );
 };
 
-export default DefaultLayout;
+export default AdminLayout;

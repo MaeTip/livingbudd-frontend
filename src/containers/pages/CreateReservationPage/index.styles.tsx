@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
       right: 125px;
     }
 
-    .logo-text {
+    .logo-text-only {
       display: none;
     }
 

@@ -47,7 +47,7 @@ const CreateReservationPage = () => {
   return (
     <Wrapper>
       <div className="form-wrapper">
-        <AppLogoWithText className={"logo-text"} />
+        <AppLogoWithText className={"logo-text-only"} textOnly />
         <img src={logo} className="logo" alt="logo" width={"200px"} />
         <Row>
           <Col md={{ span: 14 }} sm={{ span: 24 }}>
@@ -71,7 +71,9 @@ const CreateReservationPage = () => {
                     <Title className="title">
                       {t("reservation.form.title")}
                       <br />
-                      <span className={'area-name'}>{t("reservation.area.nonthaburi")}</span>
+                      <span className={"area-name"}>
+                        {t("reservation.area.nonthaburi")}
+                      </span>
                     </Title>
                   </Col>
                 </Row>
