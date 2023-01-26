@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { routes } from "./utils/routers";
+import { routes } from "./constants/routers";
 import AdminLayout from "./containers/layouts/AdminLayout";
 import PrivateRoute from "./components/PrivateRoute";
 import HomePage from "./containers/pages/HomePage";

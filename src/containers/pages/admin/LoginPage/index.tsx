@@ -9,7 +9,7 @@ import { useAppDispatch } from 'redux/store'
 import { setToken } from "redux/slice/auth.slice";
 import { useLoginUserMutation } from "redux/api/auth.api";
 import { Wrapper } from "./index.styles";
-import logo from "assets/livingbudd_logo.svg"
+import logo from "assets/logo/logo_black.svg"
 
 const loginSchema = object({
   email: string()

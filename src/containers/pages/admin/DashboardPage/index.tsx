@@ -1,4 +1,4 @@
-import livingBuddLogo from "assets/livingbudd_logo.svg";
+import livingBuddLogo from "assets/logo/logo_black.svg";
 import { useAppSelector } from "redux/store";
 import { useTranslation } from "react-i18next";
 

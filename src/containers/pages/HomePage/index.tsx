@@ -11,7 +11,40 @@ import { Wrapper } from "./index.styles";
 const HomePage = () => {
   const { Title } = Typography;
   const { t } = useTranslation();
-
+  const rentalList = [
+    {
+      image: placeholderImage1,
+      title: "บ้านเอื้ออาทร ราชพฤกษ์",
+      location: "ราชพฤกษ์ นนทบุรี",
+      numberOfBedroom: 1,
+      size: 33,
+      isAirConditioner: true,
+    },
+    {
+      image: placeholderImage2,
+      title: "บ้านเอื้ออาทร ราชพฤกษ์",
+      location: "ราชพฤกษ์ นนทบุรี",
+      numberOfBedroom: 1,
+      size: 33,
+      isAirConditioner: true,
+    },
+    {
+      image: placeholderImage3,
+      title: "บ้านเอื้ออาทร ราชพฤกษ์",
+      location: "ราชพฤกษ์ นนทบุรี",
+      numberOfBedroom: 1,
+      size: 33,
+      isAirConditioner: true,
+    },
+    {
+      image: placeholderImage4,
+      title: "บ้านเอื้ออาทร ราชพฤกษ์",
+      location: "ราชพฤกษ์ นนทบุรี",
+      numberOfBedroom: 1,
+      size: 33,
+      isAirConditioner: true,
+    },
+  ];
   return (
     <Wrapper>
       <Row className={"container"}>
@@ -38,43 +71,11 @@ const HomePage = () => {
           <div className="sub-title">
             <Title level={2}>{t("home.rental_section.title")}</Title>
           </div>
-          <RentalList
-            list={[
-              {
-                image: placeholderImage1,
-                title: "บ้านเอื้ออาทร ราชพฤกษ์",
-                location: "ราชพฤกษ์ นนทบุรี",
-                numberOfBedroom: 1,
-                size: 33,
-                isAirConditioner: true,
-              },
-              {
-                image: placeholderImage2,
-                title: "บ้านเอื้ออาทร ราชพฤกษ์",
-                location: "ราชพฤกษ์ นนทบุรี",
-                numberOfBedroom: 1,
-                size: 33,
-                isAirConditioner: true,
-              },
-              {
-                image: placeholderImage3,
-                title: "บ้านเอื้ออาทร ราชพฤกษ์",
-                location: "ราชพฤกษ์ นนทบุรี",
-                numberOfBedroom: 1,
-                size: 33,
-                isAirConditioner: true,
-              },
-              {
-                image: placeholderImage4,
-                title: "บ้านเอื้ออาทร ราชพฤกษ์",
-                location: "ราชพฤกษ์ นนทบุรี",
-                numberOfBedroom: 1,
-                size: 33,
-                isAirConditioner: true,
-              },
-            ]}
-          />
+          <RentalList list={rentalList} />
         </Col>
+      </Row>
+      <Row className={"container why-us"}>
+
       </Row>
     </Wrapper>
   );

@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { Row, Col, Button } from "antd";
 import { useCreateReservationMutation } from "redux/api/reservation.api";
 import { Wrapper } from "./index.styles";
-import logo from "assets/livingbudd_logo.svg";
+import logo from "assets/logo/logo_black.svg";
 import { Typography } from "antd";
 import ReservationForm from "components/ReservationForm";
 import AppLogoWithText from "components/AppLogoWithText";
@@ -11,7 +11,7 @@ import SuccessfulResult from "components/ResultSuccuessful";
 import { useTranslation } from "react-i18next";
 
 const CreateReservationPage = () => {
-  const { Title, Paragraph } = Typography;
+  const { Title } = Typography;
   const { t } = useTranslation();
 
   const [createReservation, { isLoading, isError, error, isSuccess, reset }] =

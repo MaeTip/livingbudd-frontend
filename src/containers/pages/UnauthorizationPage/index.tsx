@@ -1,4 +1,4 @@
-import livingBuddLogo from 'assets/livingbudd_logo.svg'
+import livingBuddLogo from 'assets/logo/logo_black.svg'
 import { Typography } from 'antd';
 const { Title } = Typography;
 

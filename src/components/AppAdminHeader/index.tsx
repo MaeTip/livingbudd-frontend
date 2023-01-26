@@ -1,11 +1,11 @@
 import { Col, Layout, Menu, MenuProps, message, Row } from "antd";
-import livingBuddLogo from "assets/livingbudd_logo_header.png";
 import ProfileMenu from "components/ProfileMenu";
-import { useAppSelector } from "../../redux/store";
+import { useAppSelector } from "redux/store";
 import { HomeOutlined, AuditOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import { routes } from "utils/routers";
+import { routes } from "constants/routers";
+import livingBuddLogo from "assets/logo/logo_white_250x.png";
 
 const AppAdminHeader = () => {
   const user = useAppSelector((state) => state.user.user);
