@@ -1,54 +1,18 @@
 import React from "react";
 import { Button, Col, Row, Typography } from "antd";
-import RentalList from "components/RentalList";
-import placeholderImage1 from "assets/images/home/room-placeholder-1.png";
-import placeholderImage2 from "assets/images/home/room-placeholder-2.png";
-import placeholderImage3 from "assets/images/home/room-placeholder-3.png";
-import placeholderImage4 from "assets/images/home/room-placeholder-4.png";
-import constructionImage from "assets/images/home/construction.svg";
 import { useTranslation } from "react-i18next";
-import { Wrapper } from "./index.styles";
-import ReactIconWithText from "../../../components/ReactIcon";
+import RentalList from "components/RentalList";
+import ReactIconWithText from "components/ReactIcon";
 import { FaMale, FaFemale } from "react-icons/fa";
+import { Wrapper } from "./index.styles";
 import { brandingColor } from "constants/color";
+import { rentalList } from "./rental.list";
+import constructionImage from "assets/images/home/construction.svg";
 
 const HomePage = () => {
   const { Title } = Typography;
   const { t } = useTranslation();
-  const rentalList = [
-    {
-      image: placeholderImage1,
-      title: "บ้านเอื้ออาทร ราชพฤกษ์",
-      location: "ราชพฤกษ์ นนทบุรี",
-      numberOfBedroom: 1,
-      size: 33,
-      isAirConditioner: true,
-    },
-    {
-      image: placeholderImage2,
-      title: "บ้านเอื้ออาทร ราชพฤกษ์",
-      location: "ราชพฤกษ์ นนทบุรี",
-      numberOfBedroom: 1,
-      size: 33,
-      isAirConditioner: true,
-    },
-    {
-      image: placeholderImage3,
-      title: "บ้านเอื้ออาทร ราชพฤกษ์",
-      location: "ราชพฤกษ์ นนทบุรี",
-      numberOfBedroom: 1,
-      size: 33,
-      isAirConditioner: true,
-    },
-    {
-      image: placeholderImage4,
-      title: "บ้านเอื้ออาทร ราชพฤกษ์",
-      location: "ราชพฤกษ์ นนทบุรี",
-      numberOfBedroom: 1,
-      size: 33,
-      isAirConditioner: true,
-    },
-  ];
+
   return (
     <Wrapper>
       <Row className="container">
@@ -70,6 +34,7 @@ const HomePage = () => {
           </div>
         </Col>
       </Row>
+
       <Row className={"container room-listing-container"}>
         <Col span={24}>
           <div className="sub-title">
@@ -78,6 +43,7 @@ const HomePage = () => {
           <RentalList list={rentalList} />
         </Col>
       </Row>
+
       <div className={"why-us"}>
         <Row className={"container"}>
           <Col span={24}>
@@ -85,21 +51,27 @@ const HomePage = () => {
               <Title level={2}>{t("home.why_us_section.title")}</Title>
             </div>
             <Title level={3}>
-              <em>70%</em>มีผู้เช่าภายใน 1 สัปดาห์
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: t("home.why_us_section.success_rate"),
+                }}
+              />
             </Title>
           </Col>
           <Col span={24}>
             <Row className="why-us-detail">
               <Col offset={6} span={6}>
                 <Title level={4}>
-                  ระบบจัดการข้อมูลการเช่าตั้งแต่เริ่มเช่าจนปิดการสัญญาเช่า
+                  {t("home.why_us_section.description_1")}
                 </Title>
               </Col>
               <Col offset={3} span={6}>
-                <Title level={4}>ลูกค้าที่ต้องการหาห้องพัก</Title>
-                <div className='reservations'>
+                <Title level={4}>
+                  {t("home.why_us_section.description_2")}
+                </Title>
+                <div className="reservations">
                   <ReactIconWithText
-                    className={'reservation'}
+                    className={"reservation"}
                     icon={<FaMale />}
                     size={"100px"}
                     color={brandingColor.light.blue.primary}
@@ -107,7 +79,7 @@ const HomePage = () => {
                     text={"60%"}
                   />
                   <ReactIconWithText
-                    className={'reservation'}
+                    className={"reservation"}
                     icon={<FaFemale />}
                     size={"100px"}
                     color={brandingColor.light.pink.primary}
@@ -119,7 +91,11 @@ const HomePage = () => {
             </Row>
           </Col>
           <div className="construction">
-            <img src={constructionImage} style={{ width: "300px" }} />
+            <img
+              src={constructionImage}
+              style={{ width: "300px" }}
+              alt="construction"
+            />
           </div>
         </Row>
       </div>

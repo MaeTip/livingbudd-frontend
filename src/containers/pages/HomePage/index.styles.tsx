@@ -137,14 +137,17 @@ export const Wrapper = styled.div`
     
     h3 {
       font-family: 'Barlow Semi Condensed', serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       color: ${brandingColor.light.white};
       font-size: 42px;
       font-weight: normal;
       margin-top: 0;
       margin-bottom: 30px;
+      
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       
       em {
         color: ${brandingColor.light.orange.secondary};
@@ -162,7 +165,6 @@ export const Wrapper = styled.div`
       font-weight: normal;
       text-align: left;
       margin: 0;
-
     }
     
     .reservations {
@@ -183,7 +185,7 @@ export const Wrapper = styled.div`
 
     .construction {
       position: absolute;
-      bottom: -30px;
+      bottom: 0;
       left: 0;
     }
   }
