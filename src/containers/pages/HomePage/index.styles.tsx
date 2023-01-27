@@ -4,29 +4,43 @@ import heroBanner from 'assets/images/home/hero_banner.png'
 import whyUsBanner from 'assets/images/home/why_us_bg.png'
 
 export const Wrapper = styled.div`
+  .container {
+    max-width: 1360px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:not(:first-child) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .sub-title {
+      border-left: 3px solid ${brandingColor.light.black.primary};
+      padding: 10px 20px;
+      margin-bottom: 50px;
+
+      h2 {
+        text-align: left;
+        font-size: 40px;
+        margin: 0;
+      }
+    }
+  }
+  
   .banner {
     background: url(${heroBanner}) ${brandingColor.light.white} no-repeat center center;
     background-size: cover;
-    height: 450px;
+    height: 300px;
     position: relative;
-
-    .achieve-rate {
-      background-color: ${brandingColor.light.black.primary};
-      padding: 5px 15px;
-      position: absolute;
-      color: ${brandingColor.light.white};
-      right: 20px;
-      bottom: 30%;
-    }
 
     .banner-title {
       font-family: 'Barlow Semi Condensed', serif;
-      font-size: 60px;
+      font-size: 30px;
       color: ${brandingColor.light.white};
-      width: 450px;
       position: absolute;
       top: 30px;
-      left: 150px;
+      left: 30px;
       text-align: left;
 
       span {
@@ -49,20 +63,23 @@ export const Wrapper = styled.div`
       }
     }
 
+    .achieve-rate {
+      background-color: ${brandingColor.light.black.primary};
+      color: ${brandingColor.light.white};
+      padding: 5px 15px;
+      position: absolute;
+      right: 20px;
+      bottom: 80px;
+      font-size: 14px;
+    }
+    
     .cta-buttons {
       position: absolute;
-      top: 300px;
-      left: 150px;
-
-      .cta-for-tenant {
-        width: 150px;
-        height: 50px;
-      }
+      bottom: 30px;
+      left: 30px;
 
       .cta-for-agent {
         margin-left: 10px;
-        width: 180px;
-        height: 50px;
         background-color: ${brandingColor.light.orange.primary};
 
         &:hover {
@@ -71,28 +88,46 @@ export const Wrapper = styled.div`
       }
     }
 
-  }
+    @media only screen and (min-width: 768px) {
+      height: 450px;
 
-  .container {
-    max-width: 1360px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+      .banner-title {
+        font-size: 60px;
+        width: 450px;
+        top: 30px;
+        left: 100px;
+      }
 
-    &:not(:first-child) {
-      padding-left: 20px;
-      padding-right: 20px;
+      .achieve-rate {
+        font-size: 24px;
+        bottom: 120px;
+        right: 60px;
+      }
+
+      .cta-buttons {
+        bottom: 50px;
+        left: 100px;
+
+        .cta-for-tenant {
+          width: 150px;
+          height: 50px;
+        }
+
+        .cta-for-agent {
+          width: 180px;
+          height: 50px;
+        }
+      }
     }
 
-    .sub-title {
-      border-left: 3px solid #000;
-      padding: 10px 20px;
-      margin-bottom: 50px;
+    @media only screen and (min-width: 992px) {
+      .banner-title {
+        left: 150px;
+      }
 
-      h2 {
-        text-align: left;
-        font-size: 40px;
-        margin: 0;
+      .cta-buttons {
+        bottom: 60px;
+        left: 150px;
       }
     }
   }
@@ -190,5 +225,4 @@ export const Wrapper = styled.div`
       left: 0;
     }
   }
-  
 `

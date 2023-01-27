@@ -3,8 +3,22 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   padding: 0 20px;
 
-  .room-container {
-    width: 270px;
+  .rental-container {
+    padding: 0;
+    
+    .rental-card {
+      width: auto;
+    }
+
+    @media only screen and (min-width: 768px) {
+      padding: 12px 24px;
+    }
+
+    @media only screen and (min-width: 992px) {
+      .rental-card {
+        width: 270px;
+      }
+    }
   }
 
   .image-cover {
@@ -13,7 +27,7 @@ export const Wrapper = styled.div`
     background-size: cover;
     border-radius: 2px;
   }
-  
+
   .description {
     text-align: left;
     padding-bottom: 15px;

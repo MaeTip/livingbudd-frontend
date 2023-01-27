@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Card, Col, Row } from "antd";
+import { Card, List } from "antd";
 import { Wrapper } from "./index.styles";
 import { BiBed, BiBorderOuter, BiWind, BiMap } from "react-icons/bi";
 import ReactIconWithText from "../ReactIcon";
@@ -24,63 +24,69 @@ const RentalList: FC<RentalListProps> = ({ list }) => {
 
   return (
     <Wrapper className="renting-list">
-      <Row gutter={16}>
-        {list?.map(
-          ({
-            title,
-            image,
-            location,
-            numberOfBedroom,
-            size,
-            isAirConditioner = false,
-          }) => (
-            <Col span={6}>
-              <Card
-                className="room-container"
-                hoverable
-                cover={
-                  <div
-                    className="image-cover"
-                    style={{ backgroundImage: `url("${image}")` }}
-                  />
-                }
-              >
-                <Meta
-                  className="description"
-                  title={title}
-                  description={
-                    <>
-                      <div className="location">
-                        <ReactIconWithText icon={<BiMap />} text={location} />
-                      </div>
-                      <div className="facilities">
-                        <ReactIconWithText
-                          icon={<BiBed />}
-                          text={t("rental.number_of_bedroom", {
-                            number: numberOfBedroom,
-                          })}
-                        />
-                        <ReactIconWithText
-                          icon={<BiBorderOuter />}
-                          text={t("rental.size", {
-                            number: size,
-                          })}
-                        />
-                        {isAirConditioner && (
-                          <ReactIconWithText
-                            icon={<BiWind />}
-                            text={t("rental.air_conditioner")}
-                          />
-                        )}
-                      </div>
-                    </>
-                  }
+      <List
+        grid={{
+          column: 4,
+          xs: 1,
+          sm: 2,
+          md: 2,
+          lg: 3,
+        }}
+        dataSource={list}
+        renderItem={({
+          title,
+          image,
+          location,
+          numberOfBedroom,
+          size,
+          isAirConditioner = false,
+        }) => (
+          <List.Item className="rental-container">
+            <Card
+              className="rental-card"
+              hoverable
+              cover={
+                <div
+                  className="image-cover"
+                  style={{ backgroundImage: `url("${image}")` }}
                 />
-              </Card>
-            </Col>
-          )
+              }
+            >
+              <Meta
+                className="description"
+                title={title}
+                description={
+                  <>
+                    <div className="location">
+                      <ReactIconWithText icon={<BiMap />} text={location} />
+                    </div>
+                    <div className="facilities">
+                      <ReactIconWithText
+                        icon={<BiBed />}
+                        text={t("rental.number_of_bedroom", {
+                          number: numberOfBedroom,
+                        })}
+                      />
+                      <ReactIconWithText
+                        icon={<BiBorderOuter />}
+                        text={t("rental.size", {
+                          number: size,
+                        })}
+                      />
+                      {isAirConditioner && (
+                        <ReactIconWithText
+                          icon={<BiWind />}
+                          text={t("rental.air_conditioner")}
+                        />
+                      )}
+                    </div>
+                  </>
+                }
+              />
+            </Card>
+          </List.Item>
         )}
-      </Row>
+      />
     </Wrapper>
   );
 };
