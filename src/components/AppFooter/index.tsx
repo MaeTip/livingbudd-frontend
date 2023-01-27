@@ -47,6 +47,7 @@ const AppFooter: FC<AppFooterProps> = ({ className }) => {
                 <li>{t("seo.service.service_1")}</li>
                 <li>{t("seo.service.service_2")}</li>
                 <li>{t("seo.service.service_3")}</li>
+                <li>{t("seo.service.service_4")}</li>
               </ul>
             </div>
           </Col>

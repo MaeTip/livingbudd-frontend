@@ -7,10 +7,17 @@ import ServiceContent from "./service";
 import { Wrapper } from "./index.styles";
 import { rentalList } from "./rental.list";
 import ReviewContent from "./review";
+import { useNavigate } from "react-router-dom";
+import { routes } from "constants/routers";
 
 const HomePage = () => {
   const { Title } = Typography;
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate(routes.reservation);
+  };
 
   return (
     <Wrapper>
@@ -24,7 +31,12 @@ const HomePage = () => {
             <span>{t("home.hero_banner.success_rate_moto")} </span>
           </Title>
           <div className="cta-buttons">
-            <Button type="primary" className={"cta-for-tenant"} size={"large"}>
+            <Button
+              type="primary"
+              className={"cta-for-tenant"}
+              size={"large"}
+              onClick={onClick}
+            >
               {t("home.hero_banner.cta_for_tenant_button")}
             </Button>
             <Button type="primary" className={"cta-for-agent"} size={"large"}>
@@ -59,7 +71,7 @@ const HomePage = () => {
       <Row className={"our-service container"}>
         <Col span={24}>
           <div className="sub-title">
-            <Title level={2}>{t('home.service.title')}</Title>
+            <Title level={2}>{t("home.service.title")}</Title>
           </div>
         </Col>
         <Col>
@@ -70,7 +82,7 @@ const HomePage = () => {
       <Row className={"our-review container"}>
         <Col span={24}>
           <div className="sub-title">
-            <Title level={2}>{t('home.review.title')}</Title>
+            <Title level={2}>{t("home.review.title")}</Title>
           </div>
         </Col>
         <Col>

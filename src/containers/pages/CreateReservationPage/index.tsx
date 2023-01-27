@@ -9,10 +9,13 @@ import ReservationForm from "components/ReservationForm";
 import AppLogoWithText from "components/AppLogoWithText";
 import SuccessfulResult from "components/ResultSuccuessful";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { routes } from "constants/routers";
 
 const CreateReservationPage = () => {
   const { Title } = Typography;
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const [createReservation, { isLoading, isError, error, isSuccess, reset }] =
     useCreateReservationMutation();
@@ -47,8 +50,12 @@ const CreateReservationPage = () => {
   return (
     <Wrapper>
       <div className="form-wrapper">
-        <AppLogoWithText className={"logo-text-only"} textOnly />
-        <img src={logo} className="logo" alt="logo" width={"200px"} />
+        <a onClick={() => navigate(routes.homepage)}>
+          <AppLogoWithText className={"logo-text-only"} textOnly />
+        </a>
+        <a onClick={() => navigate(routes.homepage)}>
+          <img src={logo} className="logo" alt="logo" width={"200px"} />
+        </a>
         <Row>
           <Col md={{ span: 14 }} sm={{ span: 24 }}>
             {isSuccess ? (
