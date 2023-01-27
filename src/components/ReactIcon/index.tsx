@@ -6,7 +6,7 @@ import { DefaultTFuncReturn } from "i18next";
 
 interface ReactIconProps {
   icon: JSX.Element;
-  text?: string | DefaultTFuncReturn;
+  text?: string | DefaultTFuncReturn | React.ReactNode;
   color?: string;
   size?: string;
   className?: string;
@@ -21,7 +21,8 @@ const ReactIcon: FC<ReactIconProps> = ({
   className,
   border = true,
 }) => {
-  const borderStyle = border ? `1px solid ${color}` : '0 none'
+  const borderStyle = border ? `1px solid ${color}` : "0 none";
+
   return (
     <Wrapper className={className}>
       <IconContext.Provider

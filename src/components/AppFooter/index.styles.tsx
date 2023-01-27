@@ -1,7 +1,45 @@
 import styled from "styled-components";
-import { Layout } from "antd";
-const { Footer } = Layout;
+import { brandingColor } from "constants/color";
 
 export const Wrapper = styled.div`
-  //background-color: white !important;
+  h5 {
+    margin-top: 0;
+  }
+
+  .service-list {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+    }
+  }
+
+  .contact-us {
+    a {
+      color: ${brandingColor.light.black.primary};
+    }
+  }
+
+  .logo-text {
+    margin-left: 0;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .service-list {
+      width: 200px;
+    }
+
+    .logo-text {
+      margin-left: auto;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    .service-list {
+      width: 300px;
+    }
+  }
 `;
