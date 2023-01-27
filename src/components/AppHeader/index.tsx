@@ -1,7 +1,7 @@
+import { FC } from "react";
 import { Col, Row } from "antd";
 import AppLogoWithText from "../AppLogoWithText";
-import { HeaderWrapper } from "./index.styles";
-import { FC } from "react";
+import { HeaderWrapper, Wrapper } from "./index.styles";
 
 interface AppHeaderProps {
   className?: string;
@@ -10,14 +10,21 @@ interface AppHeaderProps {
 const AppHeader: FC<AppHeaderProps> = ({ className }) => {
   return (
     <HeaderWrapper
-      className={`${className}`}
-      style={{ position: "sticky", top: 0, zIndex: 1, width: "100%", padding: '0 20px' }}
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 1,
+        width: "100%",
+        padding: "0 20px",
+      }}
     >
-      <Row>
-        <Col xs={{ span: 8 }} lg={{ span: 2 }}>
-          <AppLogoWithText />
-        </Col>
-      </Row>
+      <Wrapper className={`${className}`}>
+        <Row>
+          <Col xs={{ span: 8 }} lg={{ span: 2 }}>
+            <AppLogoWithText />
+          </Col>
+        </Row>
+      </Wrapper>
     </HeaderWrapper>
   );
 };

@@ -26,11 +26,11 @@ const RentalList: FC<RentalListProps> = ({ list }) => {
     <Wrapper className="renting-list">
       <List
         grid={{
-          column: 4,
           xs: 1,
           sm: 2,
           md: 2,
           lg: 3,
+          xl: 4,
         }}
         dataSource={list}
         renderItem={({
