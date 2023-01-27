@@ -6,6 +6,7 @@ import WhyUsContent from "./whyus";
 import ServiceContent from "./service";
 import { Wrapper } from "./index.styles";
 import { rentalList } from "./rental.list";
+import ReviewContent from "./review";
 
 const HomePage = () => {
   const { Title } = Typography;
@@ -58,11 +59,22 @@ const HomePage = () => {
       <Row className={"our-service container"}>
         <Col span={24}>
           <div className="sub-title">
-            <Title level={2}>บริการของเรา</Title>
+            <Title level={2}>{t('home.service.title')}</Title>
           </div>
         </Col>
         <Col>
           <ServiceContent />
+        </Col>
+      </Row>
+
+      <Row className={"our-review container"}>
+        <Col span={24}>
+          <div className="sub-title">
+            <Title level={2}>{t('home.review.title')}</Title>
+          </div>
+        </Col>
+        <Col>
+          <ReviewContent />
         </Col>
       </Row>
     </Wrapper>
