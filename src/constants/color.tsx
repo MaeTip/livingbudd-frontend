@@ -14,6 +14,9 @@ export const brandingColor = {
     },
     pink: {
       primary: '#d34d9c'
+    },
+    grey: {
+      primary: '#e3dfd6'
     }
   },
 }

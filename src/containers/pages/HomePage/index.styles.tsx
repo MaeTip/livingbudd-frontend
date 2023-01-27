@@ -194,4 +194,25 @@ export const Wrapper = styled.div`
       margin-bottom: 50px;
     }
   }
+
+  .our-review, .our-service {
+    margin-bottom: 30px;
+
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 50px;
+    }
+  }
+
+  .our-review {
+    .sub-title {
+      margin-bottom: 20px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .sub-title {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  
 `
