@@ -3,6 +3,7 @@ import { Button, Col, Row, Typography } from "antd";
 import { useTranslation } from "react-i18next";
 import RentalList from "components/RentalList";
 import WhyUsContent from "./whyus";
+import ServiceContent from "./service";
 import { Wrapper } from "./index.styles";
 import { rentalList } from "./rental.list";
 
@@ -59,6 +60,9 @@ const HomePage = () => {
           <div className="sub-title">
             <Title level={2}>บริการของเรา</Title>
           </div>
+        </Col>
+        <Col>
+          <ServiceContent />
         </Col>
       </Row>
     </Wrapper>

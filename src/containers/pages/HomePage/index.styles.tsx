@@ -160,6 +160,7 @@ export const Wrapper = styled.div`
     background: url(${whyUsBanner}) ${brandingColor.light.black.primary} no-repeat center center;
     background-size: cover;
     position: relative;
+    margin-bottom: 30px;
     
     .container {
       position: relative;
@@ -187,6 +188,10 @@ export const Wrapper = styled.div`
       h2 {
         color: ${brandingColor.light.white};
       }
+    }
+
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 50px;
     }
   }
 `

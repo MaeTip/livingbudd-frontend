@@ -24,7 +24,7 @@ const WhyUsContent = () => {
         <Col
           xs={{ span: 24 }}
           md={{ offset: 1, span: 9 }}
-          lg={{ offset: 9, span: 6 }}
+          lg={{ offset: 9, span: 8 }}
           xl={{ offset: 7, span: 6 }}
         >
           <Title level={4}>{t("home.why_us_section.description_2")}</Title>
