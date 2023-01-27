@@ -11,6 +11,12 @@ export const Wrapper = styled.div`
   text-align: center;
   font-size: 12px;
 
+  .app-description {
+    span {
+      display: block;
+    }  
+  }
+  
   .app-name {
     font-size: 36px;
     font-weight: bold;
@@ -19,6 +25,23 @@ export const Wrapper = styled.div`
     em {
       font-style: normal;
       color: #ff914d
+    }
+  }
+  
+  &.logo-text {
+    display: flex;
+    align-items: center;
+    
+    .app-description {
+      font-size: 14px;
+      text-align: left;
+      padding-left: 10px;
+      line-height: 1.4em;
+      padding-top: 4px;
+      
+      .app-name {
+        font-size: 20px;
+      }
     }
   }
 `

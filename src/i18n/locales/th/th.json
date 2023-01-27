@@ -15,7 +15,7 @@
   "common": {
     "welcome": "ยินดีต้อนรับ",
     "errors": {
-      "required": "กรุณากรอกข้อมูล{{name}}",
+      "required": "กรุณากรอกข้อมูล {{name}}",
       "email_pattern": "กรุณากรอกข้อมูลให้ถูกต้องตามรูปแบบอีเมล์"
     },
     "confirm": {
@@ -32,6 +32,29 @@
     "notification": {
       "delete_successful": "คุณได้ลบข้อมูล \"{{name}}\" เรียบร้อยแล้ว",
       "update_successful": "คุณได้แก้ไขข้อมูล \"{{name}}\" เรียบร้อยแล้ว"
+    }
+  },
+  "rental" : {
+    "number_of_bedroom": "{{number}} ห้องนอน",
+    "air_conditioner": "แอร์",
+    "size" : "{{number}} ตรม"
+  },
+  "home": {
+    "hero_banner": {
+      "tenant_moto": "หาห้องพักถูกใจ",
+      "agent_moto": "ผู้เช่าตรงใจ",
+      "success_rate_moto": "70% ได้ห้องพักใหม่ภายใน 1 สัปดาห์",
+      "cta_for_tenant_button": "หาห้องพัก",
+      "cta_for_agent_button": "หาคนเช่าห้องพัก"
+    },
+    "rental_section": {
+      "title": "ห้องปล่อยเช่า"
+    },
+    "why_us_section": {
+      "title": "ทำไมปล่อยห้องพักให้เราดูแล",
+      "success_rate": "<em>70%</em>มีผู้เช่าภายใน 1 สัปดาห์",
+      "description_1": "พรัอมระบบจัดการข้อมูลการเช่าตั้งแต่เริ่มเช่าจนปิดการสัญญาเช่า",
+      "description_2": "ลูกค้าที่พร้อมหาห้องพัก"
     }
   },
   "reservation": {

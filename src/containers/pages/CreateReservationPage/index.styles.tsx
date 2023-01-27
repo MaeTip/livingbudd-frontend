@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import backgroundImage from 'assets/reservation_bg.png'
+import backgroundImage from 'assets/images/reservation_bg.png'
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
       right: 125px;
     }
 
-    .logo-text {
+    .logo-text-only {
       display: none;
     }
 

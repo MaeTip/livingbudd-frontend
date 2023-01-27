@@ -1,21 +1,21 @@
-import { Outlet } from 'react-router-dom';
-import { Layout } from 'antd';
-import {Wrapper} from "./index.styles";
+import { Outlet } from "react-router-dom";
+import { Layout } from "antd";
 import AppHeader from "components/AppHeader";
+import AppFooter from "components/AppFooter";
+import { LayoutWrapper } from "./index.styles";
 
 const { Content } = Layout;
 
-const DefaultLayout = () => {
+const AdminLayout = () => {
   return (
-    <Layout>
-      <AppHeader />
+    <LayoutWrapper>
+      <AppHeader className="fixed-width" />
       <Content>
-        <Wrapper>
-          <Outlet />
-        </Wrapper>
+        <Outlet />
       </Content>
-    </Layout>
+      <AppFooter className="fixed-width" />
+    </LayoutWrapper>
   );
 };
 
-export default DefaultLayout;
+export default AdminLayout;
