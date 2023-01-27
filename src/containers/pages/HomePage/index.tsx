@@ -2,12 +2,9 @@ import React from "react";
 import { Button, Col, Row, Typography } from "antd";
 import { useTranslation } from "react-i18next";
 import RentalList from "components/RentalList";
-import ReactIconWithText from "components/ReactIcon";
-import { FaMale, FaFemale } from "react-icons/fa";
+import WhyUsContent from "./whyus";
 import { Wrapper } from "./index.styles";
-import { brandingColor } from "constants/color";
 import { rentalList } from "./rental.list";
-import constructionImage from "assets/images/home/construction.svg";
 
 const HomePage = () => {
   const { Title } = Typography;
@@ -44,61 +41,26 @@ const HomePage = () => {
         </Col>
       </Row>
 
-      <div className={"why-us"}>
+      <div className="why-us full-width">
         <Row className={"container"}>
           <Col span={24}>
             <div className="sub-title">
               <Title level={2}>{t("home.why_us_section.title")}</Title>
             </div>
-            <Title level={3}>
-              <span
-                dangerouslySetInnerHTML={{
-                  __html: t("home.why_us_section.success_rate"),
-                }}
-              />
-            </Title>
           </Col>
           <Col span={24}>
-            <Row className="why-us-detail" gutter={[16, 24]}>
-              <Col xs={{ span: 24 }} md={{ offset: 1, span: 9 }} lg={{ offset: 6, span: 6 }}>
-                <Title level={4}>
-                  {t("home.why_us_section.description_2")}
-                </Title>
-                <div className="reservations">
-                  <ReactIconWithText
-                    className={"reservation"}
-                    icon={<FaMale />}
-                    size={"100px"}
-                    color={brandingColor.light.blue.primary}
-                    border={false}
-                    text={"60%"}
-                  />
-                  <ReactIconWithText
-                    className={"reservation"}
-                    icon={<FaFemale />}
-                    size={"100px"}
-                    color={brandingColor.light.pink.primary}
-                    border={false}
-                    text={"40%"}
-                  />
-                </div>
-              </Col>
-              <Col xs={{ span: 24 }} md={{ offset: 3, span: 10 }}  lg={{ offset: 3, span: 8 }}>
-                <Title level={4}>
-                  {t("home.why_us_section.description_1")}
-                </Title>
-              </Col>
-            </Row>
+            <WhyUsContent />
           </Col>
-          <div className="construction">
-            <img
-              src={constructionImage}
-              style={{ width: "300px" }}
-              alt="construction"
-            />
-          </div>
         </Row>
       </div>
+
+      <Row className={"our-service container"}>
+        <Col span={24}>
+          <div className="sub-title">
+            <Title level={2}>บริการของเรา</Title>
+          </div>
+        </Col>
+      </Row>
     </Wrapper>
   );
 };
