@@ -113,7 +113,7 @@ export const Wrapper = styled.div`
 
       .banner-title {
         font-size: 60px;
-        width: 450px;
+        width: 550px;
         top: 30px;
         left: 100px;
       }
