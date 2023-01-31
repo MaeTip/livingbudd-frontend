@@ -13,6 +13,7 @@ import UnauthorizePage from "./containers/pages/UnauthorizationPage";
 import CreateReservationPage from "./containers/pages/CreateReservationPage";
 import ReservationList from "./containers/pages/admin/ReservationList";
 import RegisterRoomOwnerPage from "./containers/pages/RegisterRoomOwnerPage";
+import RoomOwnerListPage from "./containers/pages/admin/RoomOwnerListPage";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./i18n";
@@ -29,7 +30,10 @@ function App() {
           </Route>
           <Route path="reservation" element={<CreateReservationPage />} />
           <Route path="room-owner">
-            <Route path={routes.roomOwnerRegistration} element={<RegisterRoomOwnerPage />} />
+            <Route
+              path={routes.roomOwnerRegistration}
+              element={<RegisterRoomOwnerPage />}
+            />
           </Route>
           <Route path="admin">
             <Route path="login" element={<LoginPage />} />
@@ -39,6 +43,10 @@ function App() {
                 <Route
                   path={routes.adminReservation}
                   element={<ReservationList />}
+                />
+                <Route
+                  path={routes.admin.roomOwnerList}
+                  element={<RoomOwnerListPage />}
                 />
               </Route>
             </Route>

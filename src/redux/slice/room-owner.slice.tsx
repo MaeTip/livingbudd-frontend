@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IRoomOwner } from "../dto/room-owner.dto";
+import { IRoomOwner } from "../dto";
 
 interface IReservationState {
   roomOwner: IRoomOwner | null;
