@@ -6,5 +6,8 @@ export const routes = {
   roomOwnerRegistration: '/room-owner/registration',
 
   adminReservation: "/admin/reservation",
-  adminDashboard: "/admin/dashboard"
+  adminDashboard: "/admin/dashboard",
+  admin: {
+    roomOwnerList: '/admin/room-owners'
+  }
 }

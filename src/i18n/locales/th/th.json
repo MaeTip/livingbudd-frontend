@@ -18,7 +18,8 @@
   },
   "menu": {
     "home": "Home",
-    "reservation": "Reservation"
+    "reservation": "Reservation",
+    "room_owner": "Room Registration"
   },
   "common": {
     "welcome": "ยินดีต้อนรับ",
@@ -150,7 +151,8 @@
       "room_location": "ที่อยู่ห้องพัก",
       "room_price": "ราคาห้องขั้นต่ำ/เดือน",
       "room_condition": "เงื่อนไขการจองห้องพัก",
-      "room_detail": "รายละเอียดห้องอื่นๆ"
+      "room_detail": "รายละเอียดห้องอื่นๆ",
+      "created_at": "วันที่"
     }
   }
 }

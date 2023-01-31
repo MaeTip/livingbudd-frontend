@@ -17,6 +17,7 @@ const AppAdminHeader = () => {
   const enum MENU_KEY {
     HOME = "HOME",
     RESERVATION = "RESERVATION",
+    ROOM_OWNER = "ROOM_OWNER",
   }
 
   const handleMenuClick: MenuProps["onClick"] = (e) => {
@@ -27,6 +28,10 @@ const AppAdminHeader = () => {
       }
       case MENU_KEY.HOME: {
         navigate(routes.adminDashboard);
+        break;
+      }
+      case MENU_KEY.ROOM_OWNER: {
+        navigate(routes.admin.roomOwnerList);
         break;
       }
       default: {
@@ -47,6 +52,11 @@ const AppAdminHeader = () => {
       key: MENU_KEY.RESERVATION,
       icon: <AuditOutlined />,
     },
+    {
+      label: t("menu.room_owner"),
+      key: MENU_KEY.ROOM_OWNER,
+      icon: <AuditOutlined />,
+    },
   ];
 
   const getSelectedKey = (): string => {
@@ -56,6 +66,9 @@ const AppAdminHeader = () => {
       }
       case routes.adminReservation: {
         return MENU_KEY.RESERVATION;
+      }
+      case routes.admin.roomOwnerList: {
+        return MENU_KEY.ROOM_OWNER;
       }
       default: {
         return "";
