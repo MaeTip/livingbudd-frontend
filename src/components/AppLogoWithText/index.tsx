@@ -1,17 +1,26 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { clsx } from "clsx";
-import logo from "assets/logo/logo_black_250x.png";
+import backLogo from "assets/logo/logo_black_250x.png";
+import whiteLogo from "assets/logo/logo_white_250x.png";
 import { Wrapper } from "./index.styles";
 
 interface AppLogoWithTextProps {
   className?: string;
   textOnly?: boolean;
+  textColor?: "black" | "white";
+  textVertical?: boolean;
+  logoColor?: "black" | "white";
+  logoHeight?: string;
 }
 
 const AppLogoWithText: FC<AppLogoWithTextProps> = ({
   className,
+  logoColor = "black",
+  logoHeight = "50px",
   textOnly = false,
+  textVertical = false,
+  textColor = "black",
 }) => {
   const { t } = useTranslation();
   return (
@@ -19,10 +28,17 @@ const AppLogoWithText: FC<AppLogoWithTextProps> = ({
       className={clsx(className, {
         "text-only": textOnly,
         "logo-text": !textOnly,
+        "text-vertical": textVertical,
       })}
     >
-      {!textOnly && <img src={logo} alt="logo" height={"50px"} />}
-      <p className="app-description">
+      {!textOnly && (
+        <img
+          src={logoColor === "black" ? backLogo : whiteLogo}
+          alt="logo"
+          height={logoHeight}
+        />
+      )}
+      <p className={clsx("app-description", `${textColor}-color`)}>
         <span
           className="app-name"
           dangerouslySetInnerHTML={{ __html: t("app.name_emphasized") }}
