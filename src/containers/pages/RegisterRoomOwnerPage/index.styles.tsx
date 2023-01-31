@@ -23,6 +23,10 @@ export const Wrapper = styled.div`
     }  
   }
   
+  .logo-link {
+    cursor: pointer;
+  }
+  
   @media only screen and (min-width: 768px) {
     background: #eee;
     

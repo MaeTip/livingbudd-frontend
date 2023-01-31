@@ -15,8 +15,12 @@ const HomePage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const onClick = () => {
+  const goToReservationPage = () => {
     navigate(routes.reservation);
+  };
+
+  const goToRoomOwnerRegistration = () => {
+    navigate(routes.roomOwnerRegistration);
   };
 
   return (
@@ -35,11 +39,16 @@ const HomePage = () => {
               type="primary"
               className={"cta-for-tenant"}
               size={"large"}
-              onClick={onClick}
+              onClick={goToReservationPage}
             >
               {t("home.hero_banner.cta_for_tenant_button")}
             </Button>
-            <Button type="primary" className={"cta-for-agent"} size={"large"}>
+            <Button
+              type="primary"
+              className={"cta-for-agent"}
+              size={"large"}
+              onClick={goToRoomOwnerRegistration}
+            >
               {t("home.hero_banner.cta_for_agent_button")}
             </Button>
           </div>

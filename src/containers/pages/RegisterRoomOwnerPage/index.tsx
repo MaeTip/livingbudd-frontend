@@ -1,45 +1,38 @@
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
-import { Row, Col, Button } from "antd";
-import { useCreateReservationMutation } from "redux/api/reservation.api";
-import { Wrapper } from "./index.styles";
-import { Typography } from "antd";
-import AppLogoWithText from "components/AppLogoWithText";
-import SuccessfulResult from "components/ResultSuccuessful";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { routes } from "constants/routers";
+import { Row, Col, Button, Typography } from "antd";
+import AppLogoWithText from "components/AppLogoWithText";
+import SuccessfulResult from "components/ResultSuccuessful";
 import RoomOwnerForm from "components/RoomOwnerForm";
+import { useRegisterRoomOwnerMutation } from "redux/api/room-owner.api";
+import { routes } from "constants/routers";
+import { Wrapper } from "./index.styles";
 
 const RegisterRoomOwnerPage = () => {
   const { Title } = Typography;
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const [createReservation, { isLoading, isError, error, isSuccess, reset }] =
-    useCreateReservationMutation();
+  const [registerRoomOwner, { isLoading, isError, error, isSuccess, reset }] =
+    useRegisterRoomOwnerMutation();
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success("You successfully reserve the room", {
-        position: "top-right",
-      });
+      toast.success("You successfully register as a room owner");
     }
     if (isError) {
       if (Array.isArray((error as any).data.message)) {
-        toast.error("Submit failed, please check details below", {
-          position: "top-right",
-        });
+        toast.error("Submit failed, please check details below");
       } else {
-        toast.error((error as any).data.message, {
-          position: "top-right",
-        });
+        toast.error((error as any).data.message);
       }
     }
   }, [isLoading]);
 
   const onFinish = (values: any) => {
-    createReservation(values);
+    registerRoomOwner(values);
   };
 
   const onReset = () => {
@@ -49,10 +42,10 @@ const RegisterRoomOwnerPage = () => {
   return (
     <Wrapper>
       <div className="form-wrapper">
-        <a onClick={() => navigate(routes.homepage)}>
+        <a className={"logo-link"} onClick={() => navigate(routes.homepage)}>
           <AppLogoWithText className={"logo-text-only"} />
         </a>
-        <a onClick={() => navigate(routes.homepage)}>
+        <a className={"logo-link"} onClick={() => navigate(routes.homepage)}>
           <AppLogoWithText
             className="logo"
             logoColor={"white"}
