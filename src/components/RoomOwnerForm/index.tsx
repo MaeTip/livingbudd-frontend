@@ -138,7 +138,7 @@ const RoomOwnerForm: FC<FormProps> = ({
           }}
           render={({ field }) => (
             <Form.Item required label={t("room_owner.data.room_location")}>
-              <Input  {...field} />
+              <Input {...field} />
               {errors.room_location?.type === "required" && (
                 <ErrorText
                   text={t("common.errors.required", {

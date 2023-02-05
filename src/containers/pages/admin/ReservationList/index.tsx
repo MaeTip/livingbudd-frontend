@@ -74,9 +74,11 @@ const ReservationListPage = () => {
         return pre?.filter((record) => record.id !== deletedReservationId);
       });
       setDeleteReservationId(null);
-      toast.success(t("common.notification.delete_successful", {
-        name: t("reservation.title"),
-      }));
+      toast.success(
+        t("common.notification.delete_successful", {
+          name: t("reservation.title"),
+        })
+      );
     }
   }, [isDeleteSuccess]);
 
@@ -104,9 +106,11 @@ const ReservationListPage = () => {
       setDataSource(updateDataSource);
       setReservationData(undefined);
       setIsEditMode(false);
-      toast.success(t("common.notification.update_successful", {
-        name: t("reservation.title"),
-      }));
+      toast.success(
+        t("common.notification.update_successful", {
+          name: t("reservation.title"),
+        })
+      );
     }
   }, [isUpdateSuccess]);
 
@@ -280,7 +284,7 @@ const ReservationListPage = () => {
         <div>No</div>
       ) : (
         <div>
-          <Title>{t('reservation.title')}</Title>
+          <Title>{t("reservation.title")}</Title>
           <Table
             columns={columns}
             dataSource={dataSource}

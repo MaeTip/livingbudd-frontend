@@ -3,7 +3,7 @@ import { useAppSelector } from "redux/store";
 import { useTranslation } from "react-i18next";
 
 const DashboardPage = () => {
-  let user = useAppSelector((state) => state.user.user);
+  const user = useAppSelector((state) => state.user.user);
   const { t } = useTranslation();
 
   return (

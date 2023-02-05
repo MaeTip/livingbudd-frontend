@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
 
   .rental-container {
     padding: 0;
-    
+
     .rental-card {
       width: auto;
     }

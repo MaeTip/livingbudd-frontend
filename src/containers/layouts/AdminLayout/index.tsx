@@ -1,6 +1,6 @@
-import { Outlet } from 'react-router-dom';
-import { Layout } from 'antd';
-import {Wrapper} from "./index.styles";
+import { Outlet } from "react-router-dom";
+import { Layout } from "antd";
+import { Wrapper } from "./index.styles";
 import AppLoginHeader from "components/AppAdminHeader";
 
 const { Content } = Layout;

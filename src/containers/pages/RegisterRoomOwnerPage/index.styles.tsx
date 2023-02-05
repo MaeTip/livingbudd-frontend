@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import backgroundImage from 'assets/images/room_owner_registration.png'
+import styled from "styled-components";
+import backgroundImage from "assets/images/room_owner_registration.png";
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     padding: 15px;
     background-color: #fff;
   }
-  
+
   .logo {
     display: none;
     margin-left: auto;
@@ -20,16 +20,16 @@ export const Wrapper = styled.div`
   .title {
     .area-name {
       font-size: 60%;
-    }  
+    }
   }
-  
+
   .logo-link {
     cursor: pointer;
   }
-  
+
   @media only screen and (min-width: 768px) {
     background: #eee;
-    
+
     .logo {
       display: block;
       position: absolute;
@@ -55,7 +55,7 @@ export const Wrapper = styled.div`
       background-size: cover;
       min-height: 800px;
     }
-    
+
     .successful-wrapper {
       position: relative;
       min-height: 750px;
@@ -75,5 +75,4 @@ export const Wrapper = styled.div`
       right: 100px;
     }
   }
-  
-`
+`;

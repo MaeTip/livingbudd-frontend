@@ -20,9 +20,9 @@ export const Wrapper = styled.div`
   .contact-us {
     a {
       color: ${brandingColor.light.black.primary};
-      
+
       &:hover {
-        color: ${brandingColor.light.blue.primary}
+        color: ${brandingColor.light.blue.primary};
       }
     }
   }

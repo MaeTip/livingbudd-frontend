@@ -1,28 +1,28 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { setUser } from '../slice/user.slice';
-import { IUser } from '../dto';
-import type { RootState } from '../store'
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { setUser } from "../slice/user.slice";
+import { IUser } from "../dto";
+import type { RootState } from "../store";
 
 const API_BASE_URL = process.env.REACT_APP_API_ENDPOINT as string;
 
 export const userApi = createApi({
-  reducerPath: 'userApi',
+  reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
     baseUrl: `${API_BASE_URL}/users/`,
     prepareHeaders: (headers, { getState }) => {
-      const token = (getState() as RootState).auth.token
+      const token = (getState() as RootState).auth.token;
       if (token) {
-        headers.set('authorization', `Bearer ${token}`)
-        return headers
+        headers.set("authorization", `Bearer ${token}`);
+        return headers;
       }
     },
   }),
-  tagTypes: ['User'],
+  tagTypes: ["User"],
   endpoints: (builder) => ({
     getMe: builder.query<IUser, void | null>({
       query() {
         return {
-          url: 'me'
+          url: "me",
         };
       },
       transformResponse: (result: IUser) => result,
@@ -36,6 +36,4 @@ export const userApi = createApi({
   }),
 });
 
-export const {
-  useGetMeQuery
-} = userApi;
+export const { useGetMeQuery } = userApi;

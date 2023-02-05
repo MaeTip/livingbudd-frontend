@@ -1,26 +1,32 @@
 import { Button, Form, Input, InputNumber, Radio } from "antd";
 import { Controller, useForm } from "react-hook-form";
 import ErrorText from "components/ErrorText";
-import {Gender, IReservation, Vehicle} from "redux/dto/reservation.dto";
+import { Gender, IReservation, Vehicle } from "redux/dto/reservation.dto";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Wrapper } from "./index.styles";
 
 interface FormProps {
   onFormSubmit: any;
-  isLoading: boolean,
-  isError: boolean
-  error: any,
-  data?: IReservation
+  isLoading: boolean;
+  isError: boolean;
+  error: any;
+  data?: IReservation;
 }
 
-const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, error, data }) => {
+const ReservationForm: FC<FormProps> = ({
+  onFormSubmit,
+  isLoading,
+  isError,
+  error,
+  data,
+}) => {
   const { t } = useTranslation();
   const {
     control,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm({ mode: 'onChange' });
+  } = useForm({ mode: "onChange" });
 
   return (
     <Wrapper>
@@ -135,7 +141,9 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
               <Radio.Group {...field}>
                 {Object.keys(Gender).map((option: string) => (
                   <Radio value={option} key={`gender-${option}`}>
-                    {t(`reservation.data.option.gender.${option.toLowerCase()}`)}
+                    {t(
+                      `reservation.data.option.gender.${option.toLowerCase()}`
+                    )}
                   </Radio>
                 ))}
               </Radio.Group>
@@ -150,8 +158,11 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
             <Form.Item label={t("reservation.data.air_conditioner_request")}>
               <Radio.Group {...field}>
                 {[true, false].map((option: boolean) => (
-                  <Radio value={option} key={`air-conditioner-request-${option}`}>
-                    {t(`common.option.yes_no.${option ? 'yes': 'no'}`)}
+                  <Radio
+                    value={option}
+                    key={`air-conditioner-request-${option}`}
+                  >
+                    {t(`common.option.yes_no.${option ? "yes" : "no"}`)}
                   </Radio>
                 ))}
               </Radio.Group>
@@ -167,7 +178,11 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
               <Radio.Group {...field}>
                 {[true, false].map((option: boolean) => (
                   <Radio value={option} key={`has-pet-${option}`}>
-                    {t(`reservation.data.option.pet_required.${option ? 'yes': 'no'}`)}
+                    {t(
+                      `reservation.data.option.pet_required.${
+                        option ? "yes" : "no"
+                      }`
+                    )}
                   </Radio>
                 ))}
               </Radio.Group>
@@ -228,7 +243,10 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
           )}
         />
         <Form.Item
-          wrapperCol={{ sm: { offset: 8, span: 8 }, md: { offset: 8, span: 6 } }}
+          wrapperCol={{
+            sm: { offset: 8, span: 8 },
+            md: { offset: 8, span: 6 },
+          }}
         >
           <Button
             type="primary"
@@ -237,10 +255,12 @@ const ReservationForm: FC<FormProps> = ({ onFormSubmit, isLoading, isError, erro
             loading={isLoading}
             disabled={!isValid}
           >
-            { !data ? t("reservation.form.submit") : t("reservation.form.edit_submit")}
+            {!data
+              ? t("reservation.form.submit")
+              : t("reservation.form.edit_submit")}
           </Button>
         </Form.Item>
-        {(isError && error) && (
+        {isError && error && (
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             {(error as any)?.data?.message.map((message: any, key: any) => (
               <ErrorText text={message} key={`error-${key}`} />

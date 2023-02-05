@@ -14,7 +14,7 @@ const AppAdminHeader = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const enum MENU_KEY {
+  const enum MenuKey {
     HOME = "HOME",
     RESERVATION = "RESERVATION",
     ROOM_OWNER = "ROOM_OWNER",
@@ -22,15 +22,15 @@ const AppAdminHeader = () => {
 
   const handleMenuClick: MenuProps["onClick"] = (e) => {
     switch (e.key) {
-      case MENU_KEY.RESERVATION: {
+      case MenuKey.RESERVATION: {
         navigate(routes.adminReservation);
         break;
       }
-      case MENU_KEY.HOME: {
+      case MenuKey.HOME: {
         navigate(routes.adminDashboard);
         break;
       }
-      case MENU_KEY.ROOM_OWNER: {
+      case MenuKey.ROOM_OWNER: {
         navigate(routes.admin.roomOwnerList);
         break;
       }
@@ -44,17 +44,17 @@ const AppAdminHeader = () => {
   const items: MenuProps["items"] = [
     {
       label: t("menu.home"),
-      key: MENU_KEY.HOME,
+      key: MenuKey.HOME,
       icon: <HomeOutlined />,
     },
     {
       label: t("menu.reservation"),
-      key: MENU_KEY.RESERVATION,
+      key: MenuKey.RESERVATION,
       icon: <AuditOutlined />,
     },
     {
       label: t("menu.room_owner"),
-      key: MENU_KEY.ROOM_OWNER,
+      key: MenuKey.ROOM_OWNER,
       icon: <AuditOutlined />,
     },
   ];
@@ -62,13 +62,13 @@ const AppAdminHeader = () => {
   const getSelectedKey = (): string => {
     switch (location.pathname) {
       case routes.adminDashboard: {
-        return MENU_KEY.HOME;
+        return MenuKey.HOME;
       }
       case routes.adminReservation: {
-        return MENU_KEY.RESERVATION;
+        return MenuKey.RESERVATION;
       }
       case routes.admin.roomOwnerList: {
-        return MENU_KEY.ROOM_OWNER;
+        return MenuKey.ROOM_OWNER;
       }
       default: {
         return "";
@@ -100,7 +100,7 @@ const AppAdminHeader = () => {
               <Menu
                 theme="dark"
                 mode="horizontal"
-                defaultSelectedKeys={[MENU_KEY.HOME]}
+                defaultSelectedKeys={[MenuKey.HOME]}
                 onClick={handleMenuClick}
                 selectedKeys={[getSelectedKey()]}
                 items={items}

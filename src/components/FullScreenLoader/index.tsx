@@ -1,4 +1,4 @@
-import { Layout, Space, Spin } from 'antd';
+import { Layout, Space, Spin } from "antd";
 const { Content } = Layout;
 
 const FullScreenLoader = () => {

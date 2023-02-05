@@ -6,4 +6,4 @@ export const HeaderWrapper = styled(Header)`
   background-color: white !important;
 `;
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div``;

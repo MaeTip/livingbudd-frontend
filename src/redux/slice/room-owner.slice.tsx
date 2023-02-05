@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IRoomOwner } from "../dto";
 
 interface IReservationState {
@@ -11,7 +11,7 @@ const initialState: IReservationState = {
 
 export const roomOwnerSlice = createSlice({
   initialState,
-  name: 'roomOwnerSlice',
+  name: "roomOwnerSlice",
   reducers: {
     roomOwnerState: (state, action: PayloadAction<IRoomOwner>) => {
       state.roomOwner = action.payload;

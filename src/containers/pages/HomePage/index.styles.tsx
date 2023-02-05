@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { brandingColor } from 'constants/color'
-import heroBanner from 'assets/images/home/hero_banner.png'
-import whyUsBanner from 'assets/images/home/why_us_bg.png'
+import styled from "styled-components";
+import { brandingColor } from "constants/color";
+import heroBanner from "assets/images/home/hero_banner.png";
+import whyUsBanner from "assets/images/home/why_us_bg.png";
 
 export const Wrapper = styled.div`
   .container {
@@ -30,32 +30,33 @@ export const Wrapper = styled.div`
     &.room-listing-container {
       padding-bottom: 30px;
       padding-top: 30px;
-    } 
-    
+    }
+
     @media only screen and (min-width: 768px) {
       &.room-listing-container {
         padding-bottom: 50px;
         padding-top: 50px;
       }
-      
+
       .sub-title {
         margin-bottom: 50px;
-        
+
         h2 {
           font-size: 40px;
         }
-      } 
+      }
     }
   }
-  
+
   .banner {
-    background: url(${heroBanner}) ${brandingColor.light.white} no-repeat center center;
+    background: url(${heroBanner}) ${brandingColor.light.white} no-repeat center
+      center;
     background-size: cover;
     height: 300px;
     position: relative;
 
     .banner-title {
-      font-family: 'Barlow Semi Condensed', serif;
+      font-family: "Barlow Semi Condensed", serif;
       font-size: 30px;
       color: ${brandingColor.light.white};
       position: absolute;
@@ -64,7 +65,7 @@ export const Wrapper = styled.div`
       text-align: left;
 
       span {
-        background-color: rgba(0, 0, 0, .5);
+        background-color: rgba(0, 0, 0, 0.5);
         border-radius: 10px;
         padding: 20px 20px;
         border: none;
@@ -92,7 +93,7 @@ export const Wrapper = styled.div`
       bottom: 80px;
       font-size: 14px;
     }
-    
+
     .cta-buttons {
       position: absolute;
       bottom: 30px;
@@ -151,24 +152,25 @@ export const Wrapper = styled.div`
       }
     }
   }
-  
+
   .full-width {
-    max-width: none; 
+    max-width: none;
   }
-  
+
   .why-us {
-    background: url(${whyUsBanner}) ${brandingColor.light.black.primary} no-repeat center center;
+    background: url(${whyUsBanner}) ${brandingColor.light.black.primary}
+      no-repeat center center;
     background-size: cover;
     position: relative;
     margin-bottom: 30px;
-    
+
     .container {
       position: relative;
       padding-bottom: 50px;
       padding-left: 20px;
       padding-right: 20px;
     }
-    
+
     &:before {
       content: "";
       background-color: black;
@@ -179,12 +181,12 @@ export const Wrapper = styled.div`
       right: 0;
       left: 0;
     }
-    
+
     .sub-title {
       border-left: 3px solid ${brandingColor.light.white};
       margin-top: 50px;
       margin-bottom: 30px;
-      
+
       h2 {
         color: ${brandingColor.light.white};
       }
@@ -195,7 +197,8 @@ export const Wrapper = styled.div`
     }
   }
 
-  .our-review, .our-service {
+  .our-review,
+  .our-service {
     margin-bottom: 30px;
 
     @media only screen and (min-width: 768px) {
@@ -214,5 +217,4 @@ export const Wrapper = styled.div`
       }
     }
   }
-  
-`
+`;
