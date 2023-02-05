@@ -5,7 +5,7 @@ const { Header } = Layout;
 export const HeaderWrapper = styled(Header)`
   background-color: white !important;
 
-  .logo {
+  .link {
     cursor: pointer;
     color: rgba(0, 0, 0, 0.88);
   }

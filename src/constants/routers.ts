@@ -4,6 +4,7 @@ export const routes = {
   reservation: "/reservation",
 
   roomOwnerRegistration: "/room-owner/registration",
+  registrationOption: "registration",
 
   adminReservation: "/admin/reservation",
   adminDashboard: "/admin/dashboard",
