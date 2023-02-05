@@ -41,9 +41,7 @@ const RegistrationOptionPage = () => {
                 hoverable
                 bordered
                 className="option-item"
-                onClick={() => {
-                  navigate(routes.reservation);
-                }}
+                onClick={() => navigate(item.link)}
                 cover={
                   <div
                     className="banner"
@@ -57,51 +55,6 @@ const RegistrationOptionPage = () => {
           )}
         />
       </div>
-
-      {/*<Row className="container">*/}
-      {/*  <Col className="banner" span={24}>*/}
-      {/*    <div className="options-wrapper">*/}
-      {/*      <div className="option-inner">*/}
-      {/*        <Row>*/}
-      {/*          <Col xs={24} xl={12}>*/}
-      {/*            <Card*/}
-      {/*              hoverable*/}
-      {/*              style={{ width: 120 }}*/}
-      {/*              cover={*/}
-      {/*                <img*/}
-      {/*                  alt="example"*/}
-      {/*                  src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"*/}
-      {/*                />*/}
-      {/*              }*/}
-      {/*            >*/}
-      {/*              <Meta*/}
-      {/*                title="Europe Street beat"*/}
-      {/*                description="www.instagram.com"*/}
-      {/*              />*/}
-      {/*            </Card>*/}
-      {/*          </Col>*/}
-      {/*          <Col xs={24} xl={12}>*/}
-      {/*            <Card*/}
-      {/*              hoverable*/}
-      {/*              style={{ width: 120 }}*/}
-      {/*              cover={*/}
-      {/*                <img*/}
-      {/*                  alt="example"*/}
-      {/*                  src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"*/}
-      {/*                />*/}
-      {/*              }*/}
-      {/*            >*/}
-      {/*              <Meta*/}
-      {/*                title="Europe Street beat"*/}
-      {/*                description="www.instagram.com"*/}
-      {/*              />*/}
-      {/*            </Card>*/}
-      {/*          </Col>*/}
-      {/*        </Row>*/}
-      {/*      </div>*/}
-      {/*    </div>*/}
-      {/*  </Col>*/}
-      {/*</Row>*/}
     </PageWrapper>
   );
 };
