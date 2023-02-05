@@ -30,6 +30,7 @@ const RoomOwnerListPage = () => {
     } else {
       setDataSource(roomOwners);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   const onClickedDeleteButton = (data: IRoomOwner): void => {

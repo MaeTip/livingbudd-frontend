@@ -66,6 +66,7 @@ const ReservationListPage = () => {
     } else {
       setDataSource(reservations);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   useEffect(() => {
@@ -80,6 +81,7 @@ const ReservationListPage = () => {
         })
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDeleteSuccess]);
 
   useEffect(() => {
@@ -92,6 +94,7 @@ const ReservationListPage = () => {
         toast.error((updateError as any).data.message);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   useEffect(() => {
@@ -112,6 +115,7 @@ const ReservationListPage = () => {
         })
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isUpdateSuccess]);
 
   const onUpdateFormSubmit = (values: any) => {

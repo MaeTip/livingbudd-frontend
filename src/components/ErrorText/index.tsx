@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import { Wrapper } from "./index.styles";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 
 interface ErrorTextProps {

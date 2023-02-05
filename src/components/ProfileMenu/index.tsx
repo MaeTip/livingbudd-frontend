@@ -23,14 +23,14 @@ const ProfileMenu: FC<ProfileMenuProps> = (user) => {
     navigate("/admin/login");
   };
 
-  const enum MENU_KEY {
+  const enum MenuKey {
     LOGOUT = "LOGOUT",
     SETTING = "SETTING",
     ACCOUNT = "ACCOUNT",
   }
 
   const handleMenuClick: MenuProps["onClick"] = (e) => {
-    if ((e.key as string) === (MENU_KEY.LOGOUT as unknown as string)) {
+    if ((e.key as string) === (MenuKey.LOGOUT as unknown as string)) {
       handleLogOut();
       message.info(`You successfully logged out`);
     }
@@ -39,12 +39,12 @@ const ProfileMenu: FC<ProfileMenuProps> = (user) => {
   const items: MenuProps["items"] = [
     {
       label: `${user.user?.firstName} ${user.user?.lastName}`,
-      key: MENU_KEY.ACCOUNT,
+      key: MenuKey.ACCOUNT,
       icon: <UserOutlined />,
     },
     {
       label: "Setting",
-      key: MENU_KEY.SETTING,
+      key: MenuKey.SETTING,
       icon: <SettingOutlined />,
     },
     {
@@ -52,7 +52,7 @@ const ProfileMenu: FC<ProfileMenuProps> = (user) => {
     },
     {
       label: "logout",
-      key: MENU_KEY.LOGOUT,
+      key: MenuKey.LOGOUT,
       icon: <LogoutOutlined />,
     },
   ];

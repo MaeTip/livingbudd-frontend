@@ -56,6 +56,7 @@ const LoginPage = () => {
         });
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   const onFinish = (values: any) => {
