@@ -12,7 +12,7 @@ const SuccessfulResult: React.FC<SuccessfulResultProps> = ({
   className,
   title,
   subtitle,
-  extra
+  extra,
 }) => (
   <Result
     className={className}

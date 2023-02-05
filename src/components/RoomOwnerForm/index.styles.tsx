@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   .form-error {
@@ -8,4 +8,4 @@ export const Wrapper = styled.div`
   .ant-form-item {
     margin-bottom: 10px;
   }
-`
+`;

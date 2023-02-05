@@ -4,6 +4,11 @@ const { Header } = Layout;
 
 export const HeaderWrapper = styled(Header)`
   background-color: white !important;
+
+  .link {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.88);
+  }
 `;
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div``;

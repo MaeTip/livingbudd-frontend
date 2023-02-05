@@ -11,7 +11,6 @@ import { removeAuthToken } from "utils/localstorage";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../../redux/dto";
 
-
 export interface ProfileMenuProps {
   user: IUser | null;
 }

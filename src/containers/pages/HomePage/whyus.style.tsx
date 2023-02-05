@@ -1,10 +1,10 @@
-import styled from 'styled-components'
-import { brandingColor } from 'constants/color'
+import styled from "styled-components";
+import { brandingColor } from "constants/color";
 export const Wrapper = styled.div`
   position: relative;
-  
+
   h3 {
-    font-family: 'Barlow Semi Condensed', serif;
+    font-family: "Barlow Semi Condensed", serif;
     color: ${brandingColor.light.white};
     font-size: 24px;
     font-weight: normal;
@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
   }
 
   h4 {
-    font-family: 'Barlow Semi Condensed', serif;
+    font-family: "Barlow Semi Condensed", serif;
     color: ${brandingColor.light.white};
     font-size: 24px;
     font-weight: normal;
@@ -44,7 +44,7 @@ export const Wrapper = styled.div`
       padding-top: 20px;
 
       span {
-        font-family: 'Barlow Semi Condensed', serif;
+        font-family: "Barlow Semi Condensed", serif;
         font-weight: bold;
         font-size: 40px;
       }
@@ -107,7 +107,6 @@ export const Wrapper = styled.div`
 
     .construction {
       display: block;
-      
     }
   }
-`
+`;

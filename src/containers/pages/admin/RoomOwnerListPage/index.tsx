@@ -10,7 +10,7 @@ import { PageWrapper } from "./index.styles";
 
 const RoomOwnerListPage = () => {
   const { t } = useTranslation();
-  const { Title } = Typography
+  const { Title } = Typography;
   const {
     isLoading,
     isError,
@@ -104,7 +104,7 @@ const RoomOwnerListPage = () => {
       key: "room_price",
       width: 100,
       responsive: ["md"],
-      render: (value: number) => value.toLocaleString()
+      render: (value: number) => value.toLocaleString(),
     },
     {
       title: t("room_owner.data.room_condition"),

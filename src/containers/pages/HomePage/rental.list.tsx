@@ -36,4 +36,4 @@ export const rentalList = [
     size: 33,
     isAirConditioner: true,
   },
-]
+];

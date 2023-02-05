@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import backgroundImage from 'assets/images/reservation_bg.png'
+import styled from "styled-components";
+import backgroundImage from "assets/images/reservation_bg.png";
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     padding: 15px;
     background-color: #fff;
   }
-  
+
   .logo {
     display: none;
     margin-left: auto;
@@ -20,12 +20,12 @@ export const Wrapper = styled.div`
   .title {
     .area-name {
       font-size: 60%;
-    }  
+    }
   }
-  
+
   @media only screen and (min-width: 768px) {
     background: #eee;
-    
+
     .logo {
       display: block;
       position: absolute;
@@ -45,10 +45,10 @@ export const Wrapper = styled.div`
       margin-right: auto;
       top: 50%;
       transform: translateY(-50%);
-      background: url(${backgroundImage}) #FFF no-repeat top center;
+      background: url(${backgroundImage}) #fff no-repeat top center;
       background-size: cover;
     }
-    
+
     .reservation-successful {
       position: relative;
       min-height: 750px;
@@ -67,5 +67,4 @@ export const Wrapper = styled.div`
       right: 140px;
     }
   }
-  
-`
+`;

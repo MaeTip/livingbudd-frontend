@@ -23,31 +23,31 @@ export const reservationApi = createApi({
       query() {
         return {
           url: `/reservations`,
-          credentials: 'include',
+          credentials: "include",
         };
       },
-      transformResponse: (result: { data: IReservation[] }) => result.data
+      transformResponse: (result: { data: IReservation[] }) => result.data,
     }),
-    updateReservation: builder.mutation<IReservation, { id: number; reservation: FormData }>(
-      {
-        query({ id, reservation }) {
-          return {
-            url: `/reservations/${id}`,
-            method: 'PATCH',
-            credentials: 'include',
-            body: reservation,
-          };
-        },
-        transformResponse: (response: { data: IReservation }) =>
-          response.data,
-      }
-    ),
+    updateReservation: builder.mutation<
+      IReservation,
+      { id: number; reservation: FormData }
+    >({
+      query({ id, reservation }) {
+        return {
+          url: `/reservations/${id}`,
+          method: "PATCH",
+          credentials: "include",
+          body: reservation,
+        };
+      },
+      transformResponse: (response: { data: IReservation }) => response.data,
+    }),
     deleteReservation: builder.mutation<IReservation, string>({
       query(id) {
         return {
           url: `/reservations/${id}`,
-          method: 'Delete',
-          credentials: 'include',
+          method: "Delete",
+          credentials: "include",
         };
       },
     }),
@@ -58,5 +58,5 @@ export const {
   useCreateReservationMutation,
   useUpdateReservationMutation,
   useGetAllReservationsQuery,
-  useDeleteReservationMutation
+  useDeleteReservationMutation,
 } = reservationApi;

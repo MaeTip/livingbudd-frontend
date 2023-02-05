@@ -29,6 +29,7 @@ const RegisterRoomOwnerPage = () => {
         toast.error((error as any).data.message);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   const onFinish = (values: any) => {

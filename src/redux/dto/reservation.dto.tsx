@@ -1,5 +1,5 @@
 export interface IReservation {
-  id: number
+  id: number;
   email?: string;
   fullname: string;
   gender?: Gender;

@@ -1,7 +1,7 @@
 export interface IRoomOwner {
-  id: number
-  createdAt: Date
-  updatedAt: Date
+  id: number;
+  createdAt: Date;
+  updatedAt: Date;
   fullname: string;
   phone: string;
   email?: string;
@@ -11,4 +11,3 @@ export interface IRoomOwner {
   room_condition?: string;
   room_detail?: string;
 }
-

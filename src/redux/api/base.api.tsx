@@ -4,7 +4,7 @@ import {
   fetchBaseQuery,
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query";
-import {RootState} from "../store";
+import { RootState } from "../store";
 
 const baseUrl = `${process.env.REACT_APP_API_ENDPOINT}`;
 
@@ -16,10 +16,10 @@ export interface GenericResponse {
 const baseQuery = fetchBaseQuery({
   baseUrl,
   prepareHeaders: (headers, { getState }) => {
-    const token = (getState() as RootState).auth.token
+    const token = (getState() as RootState).auth.token;
     if (token) {
-      headers.set('authorization', `Bearer ${token}`)
-      return headers
+      headers.set("authorization", `Bearer ${token}`);
+      return headers;
     }
   },
 });

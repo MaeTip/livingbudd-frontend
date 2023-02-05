@@ -10,5 +10,5 @@ export interface IUser {
 
 export enum ROLE {
   ADMIN,
-  USER
+  USER,
 }

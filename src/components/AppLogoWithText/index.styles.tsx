@@ -16,18 +16,18 @@ export const Wrapper = styled.div`
     img {
       display: inline-block;
     }
-    
+
     .app-description {
       margin: -20px auto 0;
       padding: 0 !important;
       text-align: center !important;
-      
+
       .app-name {
         font-size: 36px;
       }
     }
   }
-  
+
   .app-description {
     span {
       display: block;
