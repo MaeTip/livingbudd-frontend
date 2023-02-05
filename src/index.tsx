@@ -3,10 +3,12 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./redux/store";
+import "i18n";
+import "react-toastify/dist/ReactToastify.css";
+import "./index.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

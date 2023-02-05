@@ -14,10 +14,7 @@ import CreateReservationPage from "./containers/pages/CreateReservationPage";
 import ReservationList from "./containers/pages/admin/ReservationList";
 import RegisterRoomOwnerPage from "./containers/pages/RegisterRoomOwnerPage";
 import RoomOwnerListPage from "./containers/pages/admin/RoomOwnerListPage";
-
-import "react-toastify/dist/ReactToastify.css";
-import "./i18n";
-import "./App.css";
+import RegistrationOptionPage from "./containers/pages/RegistrationOptionPage";
 
 function App() {
   return (
@@ -27,6 +24,7 @@ function App() {
         <Route path="/">
           <Route element={<DefaultLayout />}>
             <Route index element={<HomePage />} />
+            <Route path="registration" element={<RegistrationOptionPage />} />
           </Route>
           <Route path="reservation" element={<CreateReservationPage />} />
           <Route path="room-owner">
