@@ -22,7 +22,6 @@ phases:
   post_build:
     commands:
       - aws s3 cp --recursive ./build s3://${BUCKET_NAME}/
-#      - aws s3 cp --acl public-read --cache-control="max-age=0, no-cache, no-store, must-revalidate" ./build/index.html s3://${BUCKET_NAME}/
       - aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --path '/*'
 artifacts:
   files:

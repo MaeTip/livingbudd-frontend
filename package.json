@@ -5,11 +5,12 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
-    "sync": "aws s3 sync ./build 's3://livingbudd-web/'",
-    "postsync": "aws cloudfront create-invalidation --distribution-id E1RELNZHANJ2D1 --path '/*'",
     "format": "prettier --write src/**/*.ts{,x}",
-    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}"
+    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
+    "test": "node scripts/test.js",
+    "test:nowatch": "node scripts/test.js --watchAll=false",
+    "sync": "aws s3 sync ./build 's3://livingbudd-web/'",
+    "postsync": "aws cloudfront create-invalidation --distribution-id E1RELNZHANJ2D1 --path '/*'"
   },
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
@@ -43,7 +44,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
+    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
@@ -141,7 +142,7 @@
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
       "^.+\\.module\\.(css|sass|scss)$"
     ],
-    "modulePaths": [],
+    "modulePaths": ["src"],
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
