@@ -10,4 +10,6 @@ export interface IRoomOwner {
   room_location: string;
   room_condition?: string;
   room_detail?: string;
+  admin_comment?: string;
+  is_mark_as_read?: boolean;
 }

@@ -1,17 +1,22 @@
-import { Button, Form, Input, InputNumber, Radio } from "antd";
-import { Controller, useForm } from "react-hook-form";
+import { Button, Checkbox, Form, Input, InputNumber } from "antd";
+import {
+  Controller,
+  FieldValues,
+  SubmitHandler,
+  useForm,
+} from "react-hook-form";
 import ErrorText from "components/ErrorText";
-import { Gender, IReservation, Vehicle } from "redux/dto/reservation.dto";
-import { FC } from "react";
+import { IRoomOwner } from "redux/dto";
+import React, { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Wrapper } from "./index.styles";
 
 interface FormProps {
-  onFormSubmit: any;
+  onFormSubmit: SubmitHandler<FieldValues>;
   isLoading: boolean;
   isError: boolean;
   error: any;
-  data?: IReservation;
+  data?: IRoomOwner;
 }
 
 const RoomOwnerForm: FC<FormProps> = ({
@@ -45,6 +50,7 @@ const RoomOwnerForm: FC<FormProps> = ({
           rules={{
             required: true,
           }}
+          defaultValue={data?.fullname}
           render={({ field }) => (
             <Form.Item required label={t("room_owner.data.fullname")}>
               <Input {...field} autoFocus />
@@ -61,6 +67,7 @@ const RoomOwnerForm: FC<FormProps> = ({
         <Controller
           name="phone"
           control={control}
+          defaultValue={data?.phone}
           rules={{
             required: true,
           }}
@@ -80,6 +87,7 @@ const RoomOwnerForm: FC<FormProps> = ({
         <Controller
           name="email"
           control={control}
+          defaultValue={data?.email}
           rules={{
             pattern: {
               value: /\S+@\S+\.\S+/,
@@ -105,6 +113,7 @@ const RoomOwnerForm: FC<FormProps> = ({
         <Controller
           name="contact"
           control={control}
+          defaultValue={data?.contact}
           render={({ field }) => (
             <Form.Item label={t("room_owner.data.contact")}>
               <Input {...field} />
@@ -114,6 +123,7 @@ const RoomOwnerForm: FC<FormProps> = ({
         <Controller
           name="room_price"
           control={control}
+          defaultValue={data?.room_price}
           rules={{
             required: true,
           }}
@@ -133,6 +143,7 @@ const RoomOwnerForm: FC<FormProps> = ({
         <Controller
           name="room_location"
           control={control}
+          defaultValue={data?.room_location}
           rules={{
             required: true,
           }}
@@ -152,6 +163,7 @@ const RoomOwnerForm: FC<FormProps> = ({
         <Controller
           name="room_detail"
           control={control}
+          defaultValue={data?.room_detail}
           render={({ field }) => (
             <Form.Item label={t("room_owner.data.room_detail")}>
               <Input.TextArea {...field} />
@@ -161,12 +173,40 @@ const RoomOwnerForm: FC<FormProps> = ({
         <Controller
           name="room_condition"
           control={control}
+          defaultValue={data?.room_condition}
           render={({ field }) => (
             <Form.Item label={t("room_owner.data.room_condition")}>
               <Input.TextArea {...field} />
             </Form.Item>
           )}
         />
+        {data && (
+          <>
+            <Controller
+              name="admin_comment"
+              control={control}
+              defaultValue={data?.admin_comment}
+              render={({ field }) => (
+                <Form.Item label={t("room_owner.data.admin_comment")}>
+                  <Input.TextArea {...field} />
+                </Form.Item>
+              )}
+            />
+            <Controller
+              name="is_mark_as_read"
+              control={control}
+              defaultValue={data.is_mark_as_read}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <Form.Item label={t("room_owner.data.is_mark_as_read")}>
+                  <Checkbox
+                    onChange={onChange} // send value to hook form
+                    checked={value}
+                  />
+                </Form.Item>
+              )}
+            />
+          </>
+        )}
         <Form.Item
           wrapperCol={{
             sm: { offset: 8, span: 8 },
@@ -181,8 +221,8 @@ const RoomOwnerForm: FC<FormProps> = ({
             disabled={!isValid}
           >
             {!data
-              ? t("reservation.form.submit")
-              : t("reservation.form.edit_submit")}
+              ? t("room_owner.form.submit")
+              : t("room_owner.form.edit_submit")}
           </Button>
         </Form.Item>
         {isError && error && (

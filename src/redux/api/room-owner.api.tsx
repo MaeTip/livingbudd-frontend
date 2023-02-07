@@ -1,7 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { IRoomOwner } from "../dto";
 import baseApi from "./base.api";
-import { IReservation } from "../dto/reservation.dto";
 
 export const roomOwnerApi = createApi({
   reducerPath: "roomOwnerApi",
@@ -29,8 +28,25 @@ export const roomOwnerApi = createApi({
       },
       transformResponse: (result: { data: IRoomOwner[] }) => result.data,
     }),
+    updateRoomOwner: builder.mutation<
+      IRoomOwner,
+      { id: number; roomOwner: FormData }
+    >({
+      query({ id, roomOwner }) {
+        return {
+          url: `/room-owners/${id}`,
+          method: "PATCH",
+          credentials: "include",
+          body: roomOwner,
+        };
+      },
+      transformResponse: (response: IRoomOwner) => response,
+    }),
   }),
 });
 
-export const { useRegisterRoomOwnerMutation, useGetAllRoomOwnerQuery } =
-  roomOwnerApi;
+export const {
+  useRegisterRoomOwnerMutation,
+  useGetAllRoomOwnerQuery,
+  useUpdateRoomOwnerMutation,
+} = roomOwnerApi;
