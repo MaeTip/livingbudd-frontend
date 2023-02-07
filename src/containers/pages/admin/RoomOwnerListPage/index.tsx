@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-import { useGetAllRoomOwnerQuery } from "redux/api/room-owner.api";
+import {
+  useGetAllRoomOwnerQuery,
+  useUpdateRoomOwnerMutation,
+} from "redux/api/room-owner.api";
 import { toast } from "react-toastify";
-import { Table, Typography } from "antd";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { Col, Modal, Row, Table, Typography } from "antd";
+import { CheckOutlined, DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { IRoomOwner } from "redux/dto";
 import { PageWrapper } from "./index.styles";
+import RoomOwnerForm from "components/RoomOwnerForm";
 
 const RoomOwnerListPage = () => {
   const { t } = useTranslation();
@@ -17,8 +21,20 @@ const RoomOwnerListPage = () => {
     error,
     data: roomOwners,
   } = useGetAllRoomOwnerQuery();
+  const [
+    updateRoomOwner,
+    {
+      isLoading: isUpdateLoading,
+      isError: isUpdateError,
+      error: updateError,
+      isSuccess: isUpdateSuccess,
+      data: updatedRoomOwner,
+    },
+  ] = useUpdateRoomOwnerMutation();
 
   const [dataSource, setDataSource] = useState<IRoomOwner[] | undefined>([]);
+  const [roomOwnerData, setRoomOwnerData] = useState<IRoomOwner | undefined>();
+  const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
   useEffect(() => {
     if (isError) {
@@ -38,8 +54,44 @@ const RoomOwnerListPage = () => {
   };
 
   const onClickedEditButton = (data: IRoomOwner) => {
-    console.log("on clicked edit button");
+    setRoomOwnerData(data);
+    setIsEditMode(true);
   };
+
+  const onSubmitUpdateForm = (values: any) => {
+    if (roomOwnerData?.id) {
+      updateRoomOwner({
+        id: roomOwnerData.id,
+        roomOwner: values,
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (updatedRoomOwner) {
+      const updateDataSource = dataSource?.map((record) =>
+        record.id === roomOwnerData?.id ? updatedRoomOwner : record
+      );
+      setDataSource(updateDataSource);
+      toast.success(
+        t("common.notification.update_successful", {
+          name: t("room_owner.title"),
+        })
+      );
+      setRoomOwnerData(undefined);
+      setIsEditMode(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isUpdateSuccess]);
+
+  useEffect(() => {
+    if (isUpdateError) {
+      (updateError as any).data.error.forEach((el: any) =>
+        toast.error(el.message)
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isUpdateLoading]);
 
   const columns: any = [
     {
@@ -71,6 +123,14 @@ const RoomOwnerListPage = () => {
         moment(new Date(b.createdAt)).unix(),
       render: (createdAt: string) =>
         moment(new Date(createdAt)).format("DD/MM/YYYY"),
+    },
+    {
+      title: t("room_owner.data.is_mark_as_read"),
+      dataIndex: "is_mark_as_read",
+      key: "is_mark_as_read",
+      width: 100,
+      responsive: ["md"],
+      render: (value: boolean) => (value ? <CheckOutlined /> : ""),
     },
     {
       title: t("room_owner.data.fullname"),
@@ -128,6 +188,13 @@ const RoomOwnerListPage = () => {
       width: 200,
       responsive: ["md"],
     },
+    {
+      title: t("room_owner.data.admin_comment"),
+      dataIndex: "admin_comment",
+      key: "admin_comment",
+      width: 200,
+      responsive: ["md"],
+    },
   ];
 
   return (
@@ -146,6 +213,26 @@ const RoomOwnerListPage = () => {
           />
         </div>
       )}
+      <Modal
+        centered
+        open={isEditMode}
+        onCancel={() => setIsEditMode(false)}
+        footer={null}
+        destroyOnClose={true}
+      >
+        <Row>
+          <Col md={{ offset: 4 }} sm={{ offset: 0 }}>
+            <Title>{t("reservation.form.edit_title")}</Title>
+          </Col>
+        </Row>
+        <RoomOwnerForm
+          onFormSubmit={onSubmitUpdateForm}
+          isLoading={isUpdateLoading}
+          isError={isUpdateError}
+          error={updateError}
+          data={roomOwnerData}
+        />
+      </Modal>
     </PageWrapper>
   );
 };
