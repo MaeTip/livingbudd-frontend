@@ -15,9 +15,6 @@ phases:
       - echo Installing source NPM dependencies...
       - echo REACT_APP_API_ENDPOINT=${REACT_APP_API_ENDPOINT} >> .env
       - yarn install
-  test:
-    commands:
-      - echo unit test started on 'date'
       - yarn run test:nowatch
   build:
     commands:
