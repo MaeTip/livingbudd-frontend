@@ -125,14 +125,6 @@ const RoomOwnerListPage = () => {
         moment(new Date(createdAt)).format("DD/MM/YYYY"),
     },
     {
-      title: t("room_owner.data.is_mark_as_read"),
-      dataIndex: "is_mark_as_read",
-      key: "is_mark_as_read",
-      width: 100,
-      responsive: ["md"],
-      render: (value: boolean) => (value ? <CheckOutlined /> : ""),
-    },
-    {
       title: t("room_owner.data.fullname"),
       dataIndex: "fullname",
       key: "fullname",
@@ -145,6 +137,14 @@ const RoomOwnerListPage = () => {
       key: "phone",
       width: 150,
       fixed: "left",
+    },
+    {
+      title: t("room_owner.data.is_mark_as_read"),
+      dataIndex: "is_mark_as_read",
+      key: "is_mark_as_read",
+      width: 100,
+      responsive: ["md"],
+      render: (value: boolean) => (value ? <CheckOutlined /> : ""),
     },
     {
       title: t("room_owner.data.email"),

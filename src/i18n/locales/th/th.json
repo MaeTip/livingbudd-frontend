@@ -18,8 +18,9 @@
   },
   "menu": {
     "home": "Home",
-    "reservation": "Reservation",
-    "room_owner": "Room Registration"
+    "reservation": "จองหัองพัก",
+    "room_owner": "ฝากห้องพัก",
+    "room": "ห้องพัก"
   },
   "common": {
     "welcome": "ยินดีต้อนรับ",
@@ -45,6 +46,10 @@
     },
     "support_areas": {
       "nonthaburi": "อ. เมือง จ.นนทบุรี"
+    },
+    "data": {
+      "created_at": "วันที่สร้าง",
+      "updated_at": "วันที่แก้ไข"
     }
   },
   "rental" : {
@@ -155,6 +160,28 @@
       "admin_comment": "ความคิดเห็นของผู้ดูแลระบบ",
       "is_mark_as_read": "อ่านแล้ว",
       "created_at": "วันที่"
+    }
+  },
+  "room": {
+    "title": "ห้องพัก",
+    "data": {
+      "name": "ชื่อห้อง",
+      "address": "ที่อยู่",
+      "google_map": "แผนที่ google map",
+      "building": "ตึก",
+      "floor": "ชั้นที่",
+      "size": "พื้นที่ใช้สอย",
+      "detail": "รายละเอียดห้อง",
+      "number_of_bedroom": "จำนวนห้องนอน",
+      "number_of_bathroom": "จำนวนห้องน้ำ",
+      "maintenance_fee": "ค่าส่วนกลาง",
+      "amenities": "สิ่งอำนวยความสะดวกภายในห้อง",
+      "facilities": "สิ่งอำนวยความสะดวกภายในและรอบอาคาร",
+      "nearby_area": "สถานที่ใกล้เคียง",
+      "is_created_by_owner": "เจ้าของพิมพ์เอง",
+      "rental_price": "ราคาเช่า",
+      "rental_deposit": "ค่ามัดจำ",
+      "rental_advance_payment": "จ่ายล่วงหน่้า"
     }
   }
 }

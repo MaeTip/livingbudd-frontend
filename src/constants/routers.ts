@@ -10,5 +10,6 @@ export const routes = {
   adminDashboard: "/admin/dashboard",
   admin: {
     roomOwnerList: "/admin/room-owners",
+    roomList: "/admin/rooms",
   },
 };

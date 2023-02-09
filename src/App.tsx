@@ -15,6 +15,7 @@ import ReservationList from "./containers/pages/admin/ReservationList";
 import RegisterRoomOwnerPage from "./containers/pages/RegisterRoomOwnerPage";
 import RoomOwnerListPage from "./containers/pages/admin/RoomOwnerListPage";
 import RegistrationOptionPage from "./containers/pages/RegistrationOptionPage";
+import RoomListPage from "containers/pages/admin/RoomListPage";
 
 function App() {
   return (
@@ -45,6 +46,10 @@ function App() {
                 <Route
                   path={routes.admin.roomOwnerList}
                   element={<RoomOwnerListPage />}
+                />
+                <Route
+                  path={routes.admin.roomList}
+                  element={<RoomListPage />}
                 />
               </Route>
             </Route>

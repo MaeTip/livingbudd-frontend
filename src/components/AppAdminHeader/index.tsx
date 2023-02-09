@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { routes } from "constants/routers";
 import livingBuddLogo from "assets/logo/logo_white_250x.png";
+import { MdBedroomParent } from "react-icons/md";
 
 const AppAdminHeader = () => {
   const user = useAppSelector((state) => state.user.user);
@@ -18,6 +19,7 @@ const AppAdminHeader = () => {
     HOME = "HOME",
     RESERVATION = "RESERVATION",
     ROOM_OWNER = "ROOM_OWNER",
+    ROOM = "ROOM",
   }
 
   const handleMenuClick: MenuProps["onClick"] = (e) => {
@@ -32,6 +34,10 @@ const AppAdminHeader = () => {
       }
       case MenuKey.ROOM_OWNER: {
         navigate(routes.admin.roomOwnerList);
+        break;
+      }
+      case MenuKey.ROOM: {
+        navigate(routes.admin.roomList);
         break;
       }
       default: {
@@ -57,6 +63,11 @@ const AppAdminHeader = () => {
       key: MenuKey.ROOM_OWNER,
       icon: <AuditOutlined />,
     },
+    {
+      label: t("menu.room"),
+      key: MenuKey.ROOM,
+      icon: <MdBedroomParent />,
+    },
   ];
 
   const getSelectedKey = (): string => {
@@ -69,6 +80,9 @@ const AppAdminHeader = () => {
       }
       case routes.admin.roomOwnerList: {
         return MenuKey.ROOM_OWNER;
+      }
+      case routes.admin.roomList: {
+        return MenuKey.ROOM;
       }
       default: {
         return "";

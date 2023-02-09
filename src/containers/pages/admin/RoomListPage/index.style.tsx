@@ -1,0 +1,9 @@
+import styled from "styled-components";
+
+export const PageWrapper = styled.div`
+  padding: 0 25px;
+
+  .actions {
+    text-align: right;
+  }
+`;
