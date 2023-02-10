@@ -4,10 +4,12 @@ import { authApi } from "./api/auth.api";
 import { userApi } from "./api/user.api";
 import { reservationApi } from "./api/reservation.api";
 import { roomOwnerApi } from "./api/room-owner.api";
+import { roomApi } from "./api/room.api";
 import userReducer from "./slice/user.slice";
 import authReducer from "./slice/auth.slice";
 import reservationReducer from "./slice/reservation.slice";
 import roomOwnerReducer from "./slice/room-owner.slice";
+import roomReducer from "./slice/room.slice";
 
 export const store = configureStore({
   reducer: {
@@ -15,8 +17,10 @@ export const store = configureStore({
     [userApi.reducerPath]: userApi.reducer,
     [reservationApi.reducerPath]: reservationApi.reducer,
     [roomOwnerApi.reducerPath]: roomOwnerApi.reducer,
+    [roomApi.reducerPath]: roomApi.reducer,
     reservation: reservationReducer,
     roomOwner: roomOwnerReducer,
+    room: roomReducer,
     user: userReducer,
     auth: authReducer,
   },
@@ -27,6 +31,7 @@ export const store = configureStore({
       userApi.middleware,
       reservationApi.middleware,
       roomOwnerApi.middleware,
+      roomApi.middleware,
     ]),
 });
 

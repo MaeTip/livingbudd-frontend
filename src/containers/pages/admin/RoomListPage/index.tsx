@@ -2,12 +2,22 @@ import React, { useCallback, useState } from "react";
 import { PageWrapper } from "./index.style";
 import { useTranslation } from "react-i18next";
 import { Row, Col, Typography, Button, Modal } from "antd";
-import RoomForm from "../../../../components/RoomForm";
+import RoomForm from "components/RoomForm";
+import { useCreateRoomMutation } from "redux/api/room.api";
 
 const RoomListPage = () => {
   const { t } = useTranslation();
   const { Title } = Typography;
-
+  const [
+    createRoom,
+    {
+      isLoading: isCreateLoading,
+      isError: isCreateError,
+      error: createError,
+      isSuccess: isCreateSuccess,
+      data: createData,
+    },
+  ] = useCreateRoomMutation();
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -21,7 +31,9 @@ const RoomListPage = () => {
     setIsEditMode(false);
   };
 
-  const onSubmit = () => {};
+  const onSubmit = (value: any) => {
+    createRoom(value);
+  };
 
   return (
     <PageWrapper>

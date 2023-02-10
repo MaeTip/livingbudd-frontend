@@ -11,7 +11,7 @@ import InputNumberRoom from "../atoms/InputNumberRoom";
 import InputNumberSize from "../atoms/InputNumberSize";
 
 interface FormProps {
-  onFormSubmit: () => void;
+  onFormSubmit: (value: any) => void;
   isLoading: boolean;
   data?: IRoom;
 }
