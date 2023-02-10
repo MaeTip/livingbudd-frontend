@@ -47,9 +47,24 @@
     "support_areas": {
       "nonthaburi": "อ. เมือง จ.นนทบุรี"
     },
+    "form": {
+      "create_title": "สร้าง{{name}}",
+      "edit_title": "แก้ไข{{name}}",
+      "submit_button": "บันทึกข้อมูล",
+      "update_button": "แก้ไขข้อมูล"
+    },
+    "action_button": {
+      "create_button": "สร้าง{{name}}"
+    },
     "data": {
       "created_at": "วันที่สร้าง",
-      "updated_at": "วันที่แก้ไข"
+      "updated_at": "วันที่แก้ไข",
+      "unit": {
+        "currency": "บาท",
+        "room": "ห้อง",
+        "month": "เดือน",
+        "size": "ตรม"
+      }
     }
   },
   "rental" : {
@@ -167,7 +182,7 @@
     "data": {
       "name": "ชื่อห้อง",
       "address": "ที่อยู่",
-      "google_map": "แผนที่ google map",
+      "google_map": "Google map",
       "building": "ตึก",
       "floor": "ชั้นที่",
       "size": "พื้นที่ใช้สอย",
@@ -180,8 +195,8 @@
       "nearby_area": "สถานที่ใกล้เคียง",
       "is_created_by_owner": "เจ้าของพิมพ์เอง",
       "rental_price": "ราคาเช่า",
-      "rental_deposit": "ค่ามัดจำ",
-      "rental_advance_payment": "จ่ายล่วงหน่้า"
+      "rental_deposit": "ค่ามัดจำ (เดือน)",
+      "rental_advance_payment": "จ่ายล่วงหน้า (เดือน)"
     }
   }
 }
