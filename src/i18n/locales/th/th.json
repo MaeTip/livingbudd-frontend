@@ -42,7 +42,8 @@
     },
     "notification": {
       "delete_successful": "คุณได้ลบข้อมูล \"{{name}}\" เรียบร้อยแล้ว",
-      "update_successful": "คุณได้แก้ไขข้อมูล \"{{name}}\" เรียบร้อยแล้ว"
+      "update_successful": "คุณได้แก้ไขข้อมูล \"{{name}}\" เรียบร้อยแล้ว",
+      "create_successful": "คุณได้เพิ่มข้อมูล \"{{name}}\" เรียบร้อยแล้ว"
     },
     "support_areas": {
       "nonthaburi": "อ. เมือง จ.นนทบุรี"
@@ -187,16 +188,16 @@
       "floor": "ชั้นที่",
       "size": "พื้นที่ใช้สอย",
       "detail": "รายละเอียดห้อง",
-      "number_of_bedroom": "จำนวนห้องนอน",
-      "number_of_bathroom": "จำนวนห้องน้ำ",
+      "number_of_bedroom": "ห้องนอน",
+      "number_of_bathroom": "ห้องน้ำ",
       "maintenance_fee": "ค่าส่วนกลาง",
       "amenities": "สิ่งอำนวยความสะดวกภายในห้อง",
       "facilities": "สิ่งอำนวยความสะดวกภายในและรอบอาคาร",
       "nearby_area": "สถานที่ใกล้เคียง",
       "is_created_by_owner": "เจ้าของพิมพ์เอง",
       "rental_price": "ราคาเช่า",
-      "rental_deposit": "ค่ามัดจำ (เดือน)",
-      "rental_advance_payment": "จ่ายล่วงหน้า (เดือน)"
+      "rental_deposit": "ค่ามัดจำ",
+      "rental_advance_payment": "จ่ายล่วงหน้า"
     }
   }
 }

@@ -7,8 +7,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { routes } from "constants/routers";
 import livingBuddLogo from "assets/logo/logo_white_250x.png";
 import { MdBedroomParent } from "react-icons/md";
+import React, { FC } from "react";
 
-const AppAdminHeader = () => {
+interface IProps {
+  className?: string;
+}
+
+const AppAdminHeader: FC<IProps> = ({ className }) => {
   const user = useAppSelector((state) => state.user.user);
   const { t } = useTranslation();
   const { Header } = Layout;
@@ -91,7 +96,10 @@ const AppAdminHeader = () => {
   };
 
   return (
-    <Header style={{ position: "sticky", top: 0, zIndex: 1, width: "100%" }}>
+    <Header
+      className={className}
+      style={{ position: "sticky", top: 0, zIndex: 1, width: "100%" }}
+    >
       <Row>
         <Col xs={{ span: 8 }} lg={{ span: 2 }}>
           <div
